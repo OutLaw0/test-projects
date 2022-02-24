@@ -1,0 +1,16 @@
+$primary: darkcyan;
+$secondary: blue;
+
+h1 {
+    color: $primary; 
+ }
+ 
+ .container{
+    &__subtitle{
+     color: $secondary;
+     height:300px;  
+     background: url("../images/2048.jpg");
+     display: flex;
+     justify-content: center;
+ }
+}
