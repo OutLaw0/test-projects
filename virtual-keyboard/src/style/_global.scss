@@ -1,12 +1,6 @@
-$primary: darkcyan;
-$secondary: red;
-/*@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');*/
-/*@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');*/
-@import url('https://fonts.googleapis.com/css2?Raleway:wght@400;700&display=swap');
-/*@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');*/
-
 :root {
     --white: #fff;
+    --maintheme: #9d75c2;
     --black: #333;
    }
    *,*:before,*:after{
@@ -15,16 +9,12 @@ $secondary: red;
 	box-sizing: border-box;
 	-webkit-tap-highlight-color: transparent;
 }
-:focus,:active{outline: none;}
-a:focus,a:active{outline: none;color:inherit}
-button{cursor: pointer;}
-a, a:visited, a:link{text-decoration: none;color:inherit;}
-a:hover{text-decoration: none;}
-nav,footer,header,aside{display: block;}
+input,button,textarea{font-family:inherit;}
+
 body{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 16px;
     line-height: normal;
     color: var(--black);
@@ -33,6 +23,19 @@ body{
     justify-content: space-between;
     height: 100vh;
 }
+h1{
+    font-weight: normal;
+    font-size: 2.5em;
+    color: var(--maintheme);
+}
+
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;color:inherit}
+button{cursor: pointer;}
+a, a:visited, a:link{text-decoration: none;color:inherit;}
+a:hover{text-decoration: none;}
+nav,footer,header,aside{display: block;}
+
 .container{
     display: flex;
     justify-content: flex-start;
@@ -41,7 +44,10 @@ body{
 
 }
 .use-keyboard-input{
-    position: absolute; top: 130px; right: 30px; width: 300px;
+    position: absolute; top: 130px; right: 30px;
+    font-size: 1em;
+    line-height: 1.5em;
+    font-weight: 300;
 }
 .keyboard {
     position: fixed;

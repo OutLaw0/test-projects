@@ -19,7 +19,10 @@ module.exports = {
         assetModuleFilename: "assets/[name][ext][query]", // "assets/[hash][ext][query]",
         clean: true
     },
-    //devtool: 'source-map',
+    devtool: 'eval-source-map',
+    devServer: {
+        hot: false, // Включает автоматическую перезагрузку страницы при изменениях
+      },
     optimization: { 
         splitChunks: {
             chunks: 'all'  
@@ -46,7 +49,7 @@ module.exports = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    MiniCssExtractPlugin.loader, // (mode === 'development') ?  'style-loader' : MiniCssExtractPlugin.loader,
+                     MiniCssExtractPlugin.loader, // (mode === 'development') ?  'style-loader' : MiniCssExtractPlugin.loader,
                     "css-loader",
                     {loader: "postcss-loader",
                     options: {
@@ -73,7 +76,9 @@ module.exports = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource'
             },
-            {
+
+           
+            { 
                 test: /\.m?js$/,
                 exclude: /node_modules/,
                 use: {
@@ -82,9 +87,9 @@ module.exports = {
                         presets: ['@babel/preset-env']
                     }
 
-                }
 
             }
+          }
 
         ]
     },
