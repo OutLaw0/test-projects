@@ -1,16 +1,7 @@
 import './style/main.scss';
 
-const userStock ={
+/*start keyboard*/
 
-    lang: 'JS',
-    frame: "Angular"
-}
+const keyboard = document.querySelector(".keyboard");
+const keyboard__keys = document.querySelector(".keyboard__keys");
 
-
-const user = {
-name: 'Vatal',
-age: '35',
-...userStock
-}
-
-console.log(user)

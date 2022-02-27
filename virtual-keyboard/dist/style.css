@@ -65,22 +65,35 @@ input, button, textarea {
   font-family: inherit;
 }
 
+textarea:focus {
+  border: 1px solid #9d75c2;
+  border: 1px solid var(--maintheme);
+  outline: 1px solid #9d75c2;
+  outline: 1px solid var(--maintheme);
+  border-radius: 3px;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
   line-height: normal;
+  color: #333;
   color: var(--black);
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
   height: 100vh;
 }
 
 h1 {
   font-weight: normal;
   font-size: 2.5em;
+  color: #9d75c2;
   color: var(--maintheme);
 }
 
@@ -111,9 +124,12 @@ nav, footer, header, aside {
 }
 
 .container {
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-direction: column;
+      flex-direction: column;
   height: 50vh;
 }
 
@@ -126,15 +142,56 @@ nav, footer, header, aside {
   font-weight: 300;
 }
 
+.footer__container {
+  padding: 1rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-align: center;
+      align-items: center;
+  /* padding: 20px 20px;*/
+}
+
+.footer-copyright__element {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  line-height: 2.5rem;
+}
+
+.copyright {
+  padding-right: 20px;
+}
+
+.github-username, .rss {
+  text-decoration: none;
+  padding: 0 20px;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .footer__container {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .footer__container > div, .footer__container a, .footer__container p {
+    line-height: 2.5rem;
+  }
+}
 .keyboard {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   padding: 5px 0;
-  background: #004134;
+  background: #9d75c2;
+  background: var(--maintheme);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-  user-select: none;
+  -webkit-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   transition: bottom 0.4s;
 }
 
@@ -158,9 +215,12 @@ nav, footer, header, aside {
   font-size: 1.05rem;
   outline: none;
   cursor: pointer;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
   vertical-align: top;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
@@ -197,37 +257,4 @@ nav, footer, header, aside {
 
 .keyboard__key--dark {
   background: rgba(0, 0, 0, 0.25);
-}
-
-.footer__container {
-  padding: 1rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  /* padding: 20px 20px;*/
-}
-
-.footer-copyright__element {
-  display: flex;
-  align-items: center;
-  line-height: 2.5rem;
-}
-
-.copyright {
-  padding-right: 20px;
-}
-
-.github-username, .rss {
-  text-decoration: none;
-  padding: 0 20px;
-  transition: 0.3s;
-}
-
-@media (max-width: 768px) {
-  .footer__container {
-    flex-wrap: wrap;
-  }
-  .footer__container > div, .footer__container a, .footer__container p {
-    line-height: 2.5rem;
-  }
 }
