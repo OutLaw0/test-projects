@@ -37,6 +37,11 @@
     padding: 0;
     -webkit-tap-highlight-color: transparent;
     position: relative;
+   
+}
+
+.use-keyboard-input{
+    caret-color: #cd62ff;
 }
 
 .keyboard__key:active {
@@ -70,3 +75,4 @@
 .keyboard__key--dark {
     background: rgba(0, 0, 0, 0.25);
 }
+
