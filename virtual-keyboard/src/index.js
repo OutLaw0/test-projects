@@ -35,10 +35,13 @@ const Keyboard = {
 
     init() { //create elements
 
+        const textArea = document.querySelector(".use-keyboard-input")
+        this.textArea = textArea;
+        
         this.elements.main = document.createElement("div");
         this.elements.keysContainer = document.createElement("div");
         //add class
-        this.elements.main.classList.add("keyboard", "keyboard--hidden1");
+        this.elements.main.classList.add("keyboard", "keyboard--hidden");
         this.elements.keysContainer.classList.add("keyboard__keys");
         this.elements.keysContainer.appendChild(createKeys.call(Keyboard)); //create elements from create JS
         this.elements.keys = this.elements.keysContainer.querySelectorAll(".keyboard__key");
@@ -52,14 +55,19 @@ const Keyboard = {
         document.body.firstElementChild.appendChild(this.elements.main)
 
         // Automatically use keyboard for elements with .use-keyboard-input
-        document.querySelectorAll(".use-keyboard-input").forEach(element => {
-            element.addEventListener("focus", () => {
-                this.open(element.value, currentValue => {
-                    element.value = currentValue;
+
+        
+
+        
+           textArea.addEventListener("focus", () => {
+                this.open('', currentValue => {
+                    textArea.value = currentValue;
                 });
             });
-        });
-        this.textArea.focus()
+
+            textArea.focus();
+
+            //setTimeout(() => textArea.focus(), 300);
         /*  this.open(textArea.value, currentValue => {
             textArea.value = currentValue;
         });*/
@@ -136,6 +144,8 @@ window.addEventListener("DOMContentLoaded", function () {
 // 1. Отменить стандартные нажатия клавиатуры, для этого прописать keycode для всех layout
 
 // 2. Сделать Shift сделать инверсию для капс лока!
+
+// Сделать сочетание для смены языка
 
 // Установить язык после перезагрузки local storage
 

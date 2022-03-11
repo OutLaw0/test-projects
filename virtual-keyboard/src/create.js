@@ -37,8 +37,7 @@ export function createHeader() {
 export function createKeys() {
 
     const fragment = document.createDocumentFragment();
-    const textArea = document.querySelector(".use-keyboard-input")
-    this.textArea = textArea;
+  
     //Create HTML icon
     const createIconHtml = (icon_name) => {
         return `<i class="material-icons">${icon_name}</i>`;
@@ -60,11 +59,11 @@ export function createKeys() {
                 keyElement.classList.add("keyboard__key--wide");
                 keyElement.innerHTML = createIconHtml("backspace")
                 keyElement.addEventListener("mousedown", () => {
-                    const position = textArea.selectionStart;
+                    const position = this.textArea.selectionStart;
                     this.properties.value = this.properties.value.slice(0, position - 1) + this.properties.value.slice(position, this.properties.value.length);
 
                     this._triggerEvent("oninput");
-                    textArea.setSelectionRange(position - 1, position - 1)
+                    this.textArea.setSelectionRange(position - 1, position - 1)
                 });
                 break;
 
@@ -82,10 +81,10 @@ export function createKeys() {
                 //keyElement.classList.add("keyboard__key--wide")
                 keyElement.innerHTML = createSpecKey("Tab")
                 keyElement.addEventListener("mousedown", () => {
-                    const position = textArea.selectionStart;
+                    const position = this.textArea.selectionStart;
                     this.properties.value = this.properties.value.slice(0, position) + "\t" + this.properties.value.slice(position, this.properties.value.length);
                     this._triggerEvent("oninput");
-                    textArea.setSelectionRange(position + 1, position + 1)
+                    this.textArea.setSelectionRange(position + 1, position + 1)
                 });
                 break;
 
@@ -93,10 +92,10 @@ export function createKeys() {
                 keyElement.classList.add("keyboard__key--wide");
                 keyElement.innerHTML = createIconHtml("keyboard_return");
                 keyElement.addEventListener("mousedown", () => {
-                    const position = textArea.selectionStart;
+                    const position = this.textArea.selectionStart;
                     this.properties.value = this.properties.value.slice(0, position) + "\n" + this.properties.value.slice(position, this.properties.value.length);
                     this._triggerEvent("oninput");
-                    textArea.setSelectionRange(position + 1, position + 1)
+                    this.textArea.setSelectionRange(position + 1, position + 1)
                 });
                 break;
 
@@ -104,10 +103,10 @@ export function createKeys() {
                 keyElement.classList.add("keyboard__key--extra-wide");
                 keyElement.innerHTML = createIconHtml("space_bar");
                 keyElement.addEventListener("mousedown", () => {
-                    const position = textArea.selectionStart;
+                    const position = this.textArea.selectionStart;
                     this.properties.value = this.properties.value.slice(0, position) + " " + this.properties.value.slice(position, this.properties.value.length);
                     this._triggerEvent("oninput");
-                    textArea.setSelectionRange(position + 1, position + 1)
+                    this.textArea.setSelectionRange(position + 1, position + 1)
                 });
                 break;
 
@@ -149,10 +148,10 @@ export function createKeys() {
                 //keyElement.classList.add("keyboard__key--wide");
                 keyElement.innerHTML = createSpecKey("Del");
                 keyElement.addEventListener("mousedown", () => {
-                    const position = textArea.selectionStart;
+                    const position = this.textArea.selectionStart;
                     this.properties.value = this.properties.value.substring(0, position) + this.properties.value.substring(position + 1);
                     this._triggerEvent("oninput");
-                    textArea.setSelectionRange(position, position)
+                    this.textArea.setSelectionRange(position, position)
                 });
 
                 break;
@@ -172,10 +171,10 @@ export function createKeys() {
                 keyElement.innerHTML = key.toLowerCase();
 
                 keyElement.addEventListener("mousedown", () => {
-                    const position = textArea.selectionStart;
+                    const position = this.textArea.selectionStart;
                     this.properties.value = this.properties.value.slice(0, position) + this.elements.keys[this.keyLayout.en.indexOf(key)].textContent + this.properties.value.slice(position, this.properties.value.length)
                     this._triggerEvent("oninput");
-                    textArea.setSelectionRange(position + 1, position + 1)
+                    this.textArea.setSelectionRange(position + 1, position + 1)
                 }, false);
 
                 break;
