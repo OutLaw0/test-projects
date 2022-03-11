@@ -12,7 +12,7 @@ module.exports = {
     mode: mode,
     entry: {
         scripts: './src/index.js',
-    
+
     },
     output: {
         filename: '[name].js', // '[name].[contenthash].js',
@@ -22,53 +22,51 @@ module.exports = {
     //devtool: 'eval-source-map',
     devServer: {
         hot: false, // Включает автоматическую перезагрузку страницы при изменениях
-      },
-    optimization: { 
+    },
+    optimization: {
         splitChunks: {
-            chunks: 'all'  
+            chunks: 'all'
         },
     },
-       
+
     plugins: [
-        new MiniCssExtractPlugin(
-            {
-                filename: 'style.css' //'[name].[contenthash].css'
-            }
-        ),
+        new MiniCssExtractPlugin({
+            filename: 'style.css' //'[name].[contenthash].css'
+        }),
         new HtmlWebpackPlugin({
-        template: './src/index.html'
-    }),
-    new ESLintPlugin()
-],
+            template: './src/index.html'
+        }),
+        new ESLintPlugin()
+    ],
     module: {
-        rules:[
-            { 
+        rules: [{
                 test: /\.html$/i,
                 loader: 'html-loader'
             },
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                     MiniCssExtractPlugin.loader, // (mode === 'development') ?  'style-loader' : MiniCssExtractPlugin.loader,
+                    MiniCssExtractPlugin.loader, // (mode === 'development') ?  'style-loader' : MiniCssExtractPlugin.loader,
                     "css-loader",
-                    {loader: "postcss-loader",
-                    options: {
-                        postcssOptions: {
-                            plugins: [
-                                [
-                                    "postcss-preset-env",
-                                    {
-                                        //options
-                                    },
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    [
+                                        "postcss-preset-env",
+                                        {
+                                            //options
+                                        },
+                                    ],
                                 ],
-                            ],
+                            },
                         },
-                    },
                     },
                     "sass-loader",
                 ]
             },
-           {
+            {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource'
             },
@@ -77,8 +75,8 @@ module.exports = {
                 type: 'asset/resource'
             },
 
-           
-            { 
+
+            {
                 test: /\.m?js$/,
                 exclude: /node_modules/,
                 use: {
@@ -88,12 +86,12 @@ module.exports = {
                     }
 
 
+                }
             }
-          }
 
         ]
     },
-   /* stats: {
-        children: true,
-      },*/
+    /* stats: {
+         children: true,
+       },*/
 };
