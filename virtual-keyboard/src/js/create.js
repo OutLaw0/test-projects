@@ -45,7 +45,7 @@ export function createKeys() {
     const createSpecKey = (name) => {
         return `<span class="special-key">${name}</span>`;
     };
-    this.keyLayout.en.forEach(key => {
+    this.keyLayout.en.forEach((key) => {
         const keyElement = document.createElement('button');
         const insertLineBreak = ["backspace", "Del", "enter", "&#9658;", "Close"].indexOf(key) !== -1;
         // Add attributes/classes
@@ -57,125 +57,83 @@ export function createKeys() {
             case "backspace":
 
                 keyElement.classList.add("keyboard__key--wide");
+                //keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createIconHtml("backspace")
-                keyElement.addEventListener("mousedown", () => {
-                    const position = this.textArea.selectionStart;
-                    this.properties.value = this.properties.value.slice(0, position - 1) + this.properties.value.slice(position, this.properties.value.length);
-
-                    this._triggerEvent("oninput");
-                    this.textArea.setSelectionRange(position - 1, position - 1)
-                });
+            
                 break;
 
             case "Ctrl":
                 // keyElement.classList.add("keyboard__key--wide");
+              //  keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createSpecKey("Ctrl")
                 break;
 
             case "Alt":
                 // keyElement.classList.add("keyboard__key--wide");
+                //keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createSpecKey("Alt")
                 break;
 
             case "Tab":
                 //keyElement.classList.add("keyboard__key--wide")
+               // keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createSpecKey("Tab")
-                keyElement.addEventListener("mousedown", () => {
-                    const position = this.textArea.selectionStart;
-                    this.properties.value = this.properties.value.slice(0, position) + "\t" + this.properties.value.slice(position, this.properties.value.length);
-                    this._triggerEvent("oninput");
-                    this.textArea.setSelectionRange(position + 1, position + 1)
-                });
+                
                 break;
 
             case "enter":
                 keyElement.classList.add("keyboard__key--wide");
+               // keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createIconHtml("keyboard_return");
-                keyElement.addEventListener("mousedown", () => {
-                    const position = this.textArea.selectionStart;
-                    this.properties.value = this.properties.value.slice(0, position) + "\n" + this.properties.value.slice(position, this.properties.value.length);
-                    this._triggerEvent("oninput");
-                    this.textArea.setSelectionRange(position + 1, position + 1)
-                });
+               
                 break;
 
             case "space":
                 keyElement.classList.add("keyboard__key--extra-wide");
+               // keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createIconHtml("space_bar");
-                keyElement.addEventListener("mousedown", () => {
-                    const position = this.textArea.selectionStart;
-                    this.properties.value = this.properties.value.slice(0, position) + " " + this.properties.value.slice(position, this.properties.value.length);
-                    this._triggerEvent("oninput");
-                    this.textArea.setSelectionRange(position + 1, position + 1)
-                });
+               
                 break;
 
             case "caps":
                 keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
+               // keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createIconHtml("keyboard_capslock")
-                keyElement.addEventListener("mousedown", () => {
-                    this._toggleCapsLock();
-                    keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
-                });
+               
                 break;
 
             case "Shift":
                 keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
+               // keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createSpecKey("Shift")
-                keyElement.addEventListener("mousedown", () => {
-                    this._toggleShift(this.properties.langRU ? 'Shift_ru' : 'Shift_en');
-                    keyElement.classList.toggle("keyboard__key--active");
-
-                });
-                keyElement.addEventListener("mouseup", () => {
-                    this._toggleLang(this.properties.langRU ? 'ru' : 'en');
-                    keyElement.classList.toggle("keyboard__key--active");
-
-                });
+               
                 break;
 
 
             case "changeLang":
                 keyElement.classList.add("keyboard__key--dark");
+              //  keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createIconHtml("language");
-                keyElement.addEventListener("mousedown", () => {
-                    this._toggleLang(this.properties.langRU ? 'en' : 'ru');
-                    this.properties.langRU = !this.properties.langRU;
-                });
+              
                 break;
 
             case "Del":
                 //keyElement.classList.add("keyboard__key--wide");
                 keyElement.innerHTML = createSpecKey("Del");
-                keyElement.addEventListener("mousedown", () => {
-                    const position = this.textArea.selectionStart;
-                    this.properties.value = this.properties.value.substring(0, position) + this.properties.value.substring(position + 1);
-                    this._triggerEvent("oninput");
-                    this.textArea.setSelectionRange(position, position)
-                });
+              //  keyElement.classList.add(this.keyLayout.keyboardOrder[index])
 
                 break;
 
             case "Close":
                 keyElement.classList.add("keyboard__key--wide", "keyboard__key--dark");
+             //   keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createIconHtml("check_circle");
                 
-                keyElement.addEventListener("click", () => {
-                    keyElement.focus();
-                    this.close();
-                    this._triggerEvent("onclose");
-                });
                 break;
 
             default:
                 keyElement.innerHTML = key.toLowerCase();
-
-                keyElement.addEventListener("mousedown", () => {
-                    const position = this.textArea.selectionStart;
-                    this.properties.value = this.properties.value.slice(0, position) + this.elements.keys[this.keyLayout.en.indexOf(key)].textContent + this.properties.value.slice(position, this.properties.value.length)
-                    this._triggerEvent("oninput");
-                    this.textArea.setSelectionRange(position + 1, position + 1)
-                }, false);
+              //  keyElement.classList.add(this.keyLayout.keyboardOrder[index])
 
                 break;
         }
@@ -186,5 +144,7 @@ export function createKeys() {
         }
 
     });
+    
     return fragment;
+   
 }

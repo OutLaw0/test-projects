@@ -2,16 +2,16 @@ import './style/main.scss';
 import {
     createHeader,
     createKeys
-} from './create.js'
+} from './js/create.js'
 import {
     keyLayout
-} from './base.js'
+} from './js/base.js'
+import {
+    print
+} from './js/keyevents.js'
 
 /*start keyboard*/
 
-window.addEventListener("DOMContentLoaded", function () {
-    createHeader();
-})
 
 const Keyboard = {
     elements: {
@@ -49,6 +49,7 @@ const Keyboard = {
         //prevent losefocus!
         this.elements.main.addEventListener("mousedown", (e) => {
             e.preventDefault();
+          
         }, false);
 
         this.elements.main.appendChild(this.elements.keysContainer)
@@ -56,17 +57,18 @@ const Keyboard = {
 
         // Automatically use keyboard for elements with .use-keyboard-input
 
-        
+        document.addEventListener("mousedown", this._handleKeyboard);
+        document.addEventListener("mouseup", this._handleKeyboard);
+        document.addEventListener("keydown", this._handleKeyboard);
+        document.addEventListener("keyup", this._handleKeyboard);
 
-        
            textArea.addEventListener("focus", () => {
-                this.open('', currentValue => {
+                this.open(textArea.value, currentValue => {
                     textArea.value = currentValue;
                 });
             });
 
             textArea.focus();
-
             //setTimeout(() => textArea.focus(), 300);
         /*  this.open(textArea.value, currentValue => {
             textArea.value = currentValue;
@@ -74,36 +76,70 @@ const Keyboard = {
     },
 
     _triggerEvent(handlerName) {
-
         if (typeof this.eventHandlers[handlerName] == "function") {
             this.eventHandlers[handlerName](this.properties.value);
 
         }
     },
 
+    _handleKeyboard(e){
+    
+        if (e.stopPropagation) e.stopPropagation();
+        const { code, type } = e;
+        const array = Keyboard.keyLayout['keyboardOrder'];
+        const array1 = Keyboard.elements.keys
+        if (type == 'keydown' || type == 'keyup') { e.preventDefault();
+            const myKey = array.find((key) => key === code);
+            if (!myKey) return;
+
+            if (type == 'keydown') array1[array.indexOf(code)].classList.add("active")
+            if (type == 'keyup')  array1[array.indexOf(code)].classList.remove("active")
+
+            const key = array1[array.indexOf(code)].textContent;
+            print.call(Keyboard, key, type)
+        }
+        if (type == 'mousedown' || type == 'mouseup') { 
+           // console.log(e.target.classList)
+            if ( e.target.classList.contains("keyboard__key") || e.target.classList.contains("material-icons") ||  e.target.classList.contains("special-key") ) {
+                const key = e.target.textContent
+                print.call(Keyboard, key, type)
+            } 
+        }       
+
+    },
+
     _toggleCapsLock() {
         this.properties.capsLock = !this.properties.capsLock;
+
         for (let key of this.elements.keys) {
             if (key.childElementCount === 0) {
                 key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
             }
+
         }
     },
+
     _toggleLang(lang) {
 
         let array = this.keyLayout[lang]
 
         this.elements.keys.forEach((el, i) => {
             if (el.childElementCount === 0) {
-                console.log(array[i])
                 el.innerHTML = array[i];
             }
         })
-
+        
+        if (this.properties.capsLock) {
+            for (let key of this.elements.keys) {
+                if (key.childElementCount === 0) {
+                    key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+                }
+            }
+        }
     },
+
     _toggleShift(lang) {
         let array = this.keyLayout[lang]
-
         this.elements.keys.forEach((el, i) => {
             if (el.childElementCount === 0) {
                 el.innerHTML = array[i];
@@ -127,21 +163,16 @@ const Keyboard = {
     }
 
     /*print(){
-
-
-
     }*/
 
 };
 
 window.addEventListener("DOMContentLoaded", function () {
+    createHeader();
     Keyboard.init();
 })
 
-
 //TODO
-
-// 1. Отменить стандартные нажатия клавиатуры, для этого прописать keycode для всех layout
 
 // 2. Сделать Shift сделать инверсию для капс лока!
 
@@ -150,7 +181,6 @@ window.addEventListener("DOMContentLoaded", function () {
 // Установить язык после перезагрузки local storage
 
 
-// ДОП. Сделать ЗАЛИПАНИЕ клавиш??? не факт что надо, главное чтобы с клавой работало
 //ДОП. удаление выделением backspace
 
 // PROFIT!!!
