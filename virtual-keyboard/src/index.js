@@ -57,10 +57,10 @@ const Keyboard = {
 
         // Automatically use keyboard for elements with .use-keyboard-input
 
-        document.addEventListener("mousedown", this._handleKeyboard);
-        document.addEventListener("mouseup", this._handleKeyboard);
-        document.addEventListener("keydown", this._handleKeyboard);
-        document.addEventListener("keyup", this._handleKeyboard);
+        document.addEventListener("mousedown", (e) => { this._handleKeyboard(e) });
+        document.addEventListener("mouseup", (e) => { this._handleKeyboard(e) });
+        document.addEventListener("keydown", (e) => { this._handleKeyboard(e) });
+        document.addEventListener("keyup", (e) => { this._handleKeyboard(e) });
 
            textArea.addEventListener("focus", () => {
                 this.open(textArea.value, currentValue => {
@@ -83,11 +83,11 @@ const Keyboard = {
     },
 
     _handleKeyboard(e){
-    
+        
         if (e.stopPropagation) e.stopPropagation();
         const { code, type } = e;
-        const array = Keyboard.keyLayout['keyboardOrder'];
-        const array1 = Keyboard.elements.keys
+        const array = this.keyLayout['keyboardOrder'];
+        const array1 = this.elements.keys
         if (type == 'keydown' || type == 'keyup') { e.preventDefault();
             const myKey = array.find((key) => key === code);
             if (!myKey) return;

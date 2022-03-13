@@ -82,6 +82,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  margin: 0;
 }
 
 h1 {
@@ -110,6 +111,7 @@ a, a:visited, a:link {
 
 a:hover {
   text-decoration: none;
+  color: var(--maintheme);
 }
 
 nav, footer, header, aside {
@@ -118,22 +120,26 @@ nav, footer, header, aside {
 
 .container {
   display: flex;
+  height: 50vh;
+  /* padding: 10px 20px; */
+  max-width: 1100px;
+  position: relative;
+  margin: 0 auto;
   justify-content: flex-start;
   flex-direction: column;
-  height: 50vh;
+  width: 90vw;
 }
 
 .use-keyboard-input {
   position: absolute;
   top: 130px;
-  right: 30px;
+  right: 0;
   font-size: 1em;
   line-height: 1.5em;
   font-weight: 300;
 }
 
 .footer__container {
-  padding: 1rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -143,16 +149,14 @@ nav, footer, header, aside {
 .footer-copyright__element {
   display: flex;
   align-items: center;
-  line-height: 2.5rem;
 }
 
-.copyright {
-  padding-right: 20px;
+.year {
+  padding: 0 20px;
 }
 
 .github-username, .rss {
   text-decoration: none;
-  padding: 0 20px;
   transition: 0.3s;
 }
 
@@ -165,15 +169,27 @@ nav, footer, header, aside {
   }
 }
 .keyboard {
+  /* position: fixed;
+   left: 0;
+   bottom: 51px;
+   width: 100%;
+   padding: 5px 0;
+   background: var(--maintheme);
+   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+   user-select: none;
+   transition: bottom 0.4s;*/
   position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  padding: 5px 0;
+  /* left: 5vw; */
+  bottom: 25%;
+  width: 90vw;
+  padding: 15px 0;
   background: var(--maintheme);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
   user-select: none;
-  transition: bottom 0.4s;
+  transition: bottom 0.6s;
+  border-radius: 5px;
+  max-width: 1100px;
+  align-self: center;
 }
 
 .keyboard--hidden {
@@ -185,13 +201,13 @@ nav, footer, header, aside {
 }
 
 .keyboard__key {
-  height: 45px;
-  width: 6%;
-  max-width: 90px;
+  height: 46px;
+  width: 5%;
+  max-width: 117px;
   margin: 3px;
   border-radius: 4px;
   border: none;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   color: #ffffff;
   font-size: 1.05rem;
   outline: none;
@@ -205,8 +221,16 @@ nav, footer, header, aside {
   position: relative;
 }
 
+.use-keyboard-input {
+  caret-color: #cd62ff;
+}
+
 .keyboard__key:active {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.keyboard__key.active {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .keyboard__key--wide {
@@ -214,8 +238,8 @@ nav, footer, header, aside {
 }
 
 .keyboard__key--extra-wide {
-  width: 36%;
-  max-width: 500px;
+  width: 38.3%;
+  max-width: 550px;
 }
 
 .keyboard__key--activatable::after {
