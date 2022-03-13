@@ -12,9 +12,10 @@ export function createHeader() {
     const new_desc_inner = `<h1>Virtual Keyboard w/ Vanilla JS</h1>
     <h3>Features</h3>
     <ul>
-        <li>Easy to integrate</li>
-        <li>Responsive</li>
-        <li>Vanilla JS (<strong>no libraries required!</strong>)</li>
+        <li>Vanilla JS with ES6 modules (<strong>no libraries required!</strong>)</li>
+        <li>Build: Webpack + Eslint (Airbnb plg)</li>
+        <li>Responsive styles</li>
+        <li>To switch language: <strong>press</strong> left ctrl + alt or <strong>click</strong> on <i class="material-icons">language</i> icon </li> 
     </ul>
     <textarea name="keyboard_text" class="use-keyboard-input" rows="5" cols="35"></textarea>`;
 
@@ -45,7 +46,13 @@ export function createKeys() {
     const createSpecKey = (name) => {
         return `<span class="special-key">${name}</span>`;
     };
-    this.keyLayout.en.forEach((key) => {
+    
+    let langArr = this.keyLayout.en
+      if (this.properties.langRU){
+        langArr = this.keyLayout.ru
+    }
+
+    langArr.forEach((key) => {
         const keyElement = document.createElement('button');
         const insertLineBreak = ["backspace", "Del", "enter", "&#9658;", "Close"].indexOf(key) !== -1;
         // Add attributes/classes

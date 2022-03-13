@@ -9,6 +9,10 @@ import {
 import {
     print
 } from './js/keyevents.js'
+import {
+    getPreference,
+    setLocalStorage
+} from './js/cookie.js'
 
 /*start keyboard*/
 
@@ -28,13 +32,17 @@ const Keyboard = {
     properties: {
         value: "",
         capsLock: false,
+        ctrl: false,
         langRU: false,
     },
 
     keyLayout: keyLayout,
 
-    init() { //create elements
-
+    init() { 
+        
+        getPreference.call(Keyboard); //get lang
+       
+        //create elements
         const textArea = document.querySelector(".use-keyboard-input")
         this.textArea = textArea;
         
@@ -43,8 +51,10 @@ const Keyboard = {
         //add class
         this.elements.main.classList.add("keyboard", "keyboard--hidden");
         this.elements.keysContainer.classList.add("keyboard__keys");
+
         this.elements.keysContainer.appendChild(createKeys.call(Keyboard)); //create elements from create JS
         this.elements.keys = this.elements.keysContainer.querySelectorAll(".keyboard__key");
+
 
         //prevent losefocus!
         this.elements.main.addEventListener("mousedown", (e) => {
@@ -57,8 +67,8 @@ const Keyboard = {
 
         // Automatically use keyboard for elements with .use-keyboard-input
 
-        document.addEventListener("mousedown", (e) => { this._handleKeyboard(e) });
-        document.addEventListener("mouseup", (e) => { this._handleKeyboard(e) });
+        this.elements.main.addEventListener("mousedown", (e) => { this._handleKeyboard(e) });
+        this.elements.main.addEventListener("mouseup", (e) => { this._handleKeyboard(e) });
         document.addEventListener("keydown", (e) => { this._handleKeyboard(e) });
         document.addEventListener("keyup", (e) => { this._handleKeyboard(e) });
 
@@ -75,14 +85,14 @@ const Keyboard = {
         });*/
     },
 
-    _triggerEvent(handlerName) {
+    _triggerEvent(handlerName) { //set textarea.value
         if (typeof this.eventHandlers[handlerName] == "function") {
             this.eventHandlers[handlerName](this.properties.value);
 
         }
     },
 
-    _handleKeyboard(e){
+    _handleKeyboard(e){ 
         
         if (e.stopPropagation) e.stopPropagation();
         const { code, type } = e;
@@ -132,7 +142,7 @@ const Keyboard = {
         if (this.properties.capsLock) {
             for (let key of this.elements.keys) {
                 if (key.childElementCount === 0) {
-                    key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+                    key.textContent = key.textContent.toUpperCase();
                 }
             }
         }
@@ -145,6 +155,14 @@ const Keyboard = {
                 el.innerHTML = array[i];
             }
         })
+
+        if (this.properties.capsLock) {
+            for (let key of this.elements.keys) {
+                if (key.childElementCount === 0) {
+                    key.textContent = key.textContent.toLowerCase();
+                }
+            }
+        }
     },
 
     open(initialValue, oninput, onclose) {
@@ -164,23 +182,21 @@ const Keyboard = {
 
     /*print(){
     }*/
-
+    
 };
 
 window.addEventListener("DOMContentLoaded", function () {
     createHeader();
     Keyboard.init();
 })
+window.addEventListener('beforeunload', () => {
+    setLocalStorage(Keyboard.properties.langRU);
+});
+
 
 //TODO
-
-// 2. Сделать Shift сделать инверсию для капс лока!
-
-// Сделать сочетание для смены языка
-
-// Установить язык после перезагрузки local storage
-
 
 //ДОП. удаление выделением backspace
 
 // PROFIT!!!
+

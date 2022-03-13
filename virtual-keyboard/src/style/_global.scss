@@ -40,7 +40,12 @@ button{cursor: pointer;}
 a, a:visited, a:link{text-decoration: none;color:inherit;}
 a:hover{text-decoration: none; color: var(--maintheme)}
 nav,footer,header,aside{display: block;}
-
+ul, li {
+    line-height: 25px;
+}
+li .material-icons {
+margin-top: -6px;
+}
 .container{
     display: flex;
     height: 50vh;
@@ -86,7 +91,16 @@ nav,footer,header,aside{display: block;}
 
     transition: 0.3s;
 }
-
+@media (max-width: 900px){
+  /*  li .material-icons {
+       // margin-top: 0;
+        }*/
+    ul, li {
+        line-height: 25px;
+        max-width: 380px;
+        font-size: 14px;
+    }
+}
     @media (max-width: 768px){
      
 
@@ -97,7 +111,8 @@ nav,footer,header,aside{display: block;}
                 line-height: 2.5rem;
             } 
         }
-        
+       
+         
         }
 
-    
+ 

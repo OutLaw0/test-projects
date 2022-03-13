@@ -14,11 +14,21 @@ export function print(key, type){
         break;
 
     case "Ctrl":
-        
+        if ( type == "keydown") {
+            this.ctrl = true
+           
+        }
+
+        if (type == "keyup") {
+            this.ctrl = false
+        }
         break;
 
     case "Alt":
-     
+        if ( type == "keydown" && this.ctrl) {
+            this._toggleLang(this.properties.langRU ? 'en' : 'ru');
+            this.properties.langRU = !this.properties.langRU;         
+        }
         break;
 
     case "Tab":
