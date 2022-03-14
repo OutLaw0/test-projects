@@ -8,14 +8,16 @@ import {
 } from './js/base.js'
 import {
     print
-} from './js/keyevents.js'
+} from './js/events_handler.js'
 import {
     getPreference,
     setLocalStorage
 } from './js/cookie.js'
-
+import {
+    selfcheck
+} from './js/selfcheck.js'
+console.log(selfcheck)
 /*start keyboard*/
-
 
 const Keyboard = {
     elements: {

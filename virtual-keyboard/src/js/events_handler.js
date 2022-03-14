@@ -2,14 +2,23 @@
 export function print(key, type){
 
     const position = this.textArea.selectionStart;
-
+    const positionEnd = this.textArea.selectionEnd;
+  
    switch (key) {
        
     case "backspace":
         if (type == "mousedown" || type == "keydown") {
+            if (position == positionEnd){
             this.properties.value = this.properties.value.slice(0, position - 1) + this.properties.value.slice(position, this.properties.value.length);
             this._triggerEvent("oninput");
             this.textArea.setSelectionRange(position - 1, position - 1)
+            }
+            else{
+            this.properties.value = this.properties.value.slice(0, position) + this.properties.value.slice(positionEnd, this.properties.value.length);
+            this._triggerEvent("oninput");
+            this.textArea.setSelectionRange(position, position)
+            }
+            
         }
         break;
 
@@ -33,7 +42,7 @@ export function print(key, type){
 
     case "Tab":
         if (type == "mousedown" || type == "keydown") {
-            this.properties.value = this.properties.value.slice(0, position) + "\t" + this.properties.value.slice(position, this.properties.value.length);
+            this.properties.value = this.properties.value.slice(0, position) + "\t" + this.properties.value.slice(positionEnd, this.properties.value.length);
             this._triggerEvent("oninput");
             this.textArea.setSelectionRange(position + 1, position + 1)
         }
@@ -41,7 +50,7 @@ export function print(key, type){
 
     case "keyboard_return":
         if (type == "mousedown" || type == "keydown") {
-            this.properties.value = this.properties.value.slice(0, position) + "\n" + this.properties.value.slice(position, this.properties.value.length);
+            this.properties.value = this.properties.value.slice(0, position) + "\n" + this.properties.value.slice(positionEnd, this.properties.value.length);
             this._triggerEvent("oninput");
             this.textArea.setSelectionRange(position + 1, position + 1)
         }
@@ -49,7 +58,7 @@ export function print(key, type){
 
     case "space_bar":
         if (type == "mousedown" || type == "keydown") {
-            this.properties.value = this.properties.value.slice(0, position) + " " + this.properties.value.slice(position, this.properties.value.length);
+            this.properties.value = this.properties.value.slice(0, position) + " " + this.properties.value.slice(positionEnd, this.properties.value.length);
             this._triggerEvent("oninput");
             this.textArea.setSelectionRange(position + 1, position + 1)
         }
@@ -93,9 +102,16 @@ export function print(key, type){
     case "Del":
 
        if (type == "mousedown" || type == "keydown") { 
-            this.properties.value = this.properties.value.substring(0, position) + this.properties.value.substring(position + 1);
+            if (position == positionEnd){
+            this.properties.value = this.properties.value.slice(0, position) + this.properties.value.slice(position+1, this.properties.value.length)
             this._triggerEvent("oninput");
             this.textArea.setSelectionRange(position, position)
+            }
+            else {
+            this.properties.value = this.properties.value.slice(0, position) + this.properties.value.slice(positionEnd, this.properties.value.length)
+            this._triggerEvent("oninput");
+            this.textArea.setSelectionRange(position, position) 
+            }
         }
 
         break;
@@ -114,7 +130,7 @@ export function print(key, type){
 
         if (type == "mousedown" || type == "keydown") {
         
-            this.properties.value = this.properties.value.slice(0, position) + key + this.properties.value.slice(position, this.properties.value.length)
+            this.properties.value = this.properties.value.slice(0, position) + key + this.properties.value.slice(positionEnd, this.properties.value.length)
             this._triggerEvent("oninput");
             this.textArea.setSelectionRange(position + 1, position + 1)
         }

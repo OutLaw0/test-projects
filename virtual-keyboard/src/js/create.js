@@ -9,13 +9,14 @@ export function createHeader() {
     document.body.appendChild(container)
     document.body.appendChild(footer)
 
-    const new_desc_inner = `<h1>Virtual Keyboard w/ Vanilla JS</h1>
-    <h3>Features</h3>
+    const new_desc_inner = `<h1>RSS Virtual Keyboard w/ Vanilla JS</h1>
+    <h3>Description</h3>
     <ul>
         <li>Vanilla JS with ES6 modules (<strong>no libraries required!</strong>)</li>
         <li>Build: Webpack + Eslint (Airbnb plg)</li>
-        <li>Responsive styles</li>
+        <li>Responsive styles</li><br>
         <li>To switch language: <strong>press</strong> left ctrl + alt or <strong>click</strong> on <i class="material-icons">language</i> icon </li> 
+        <li>If u don't see a keyboard click on textarea :)</li>
     </ul>
     <textarea name="keyboard_text" class="use-keyboard-input" rows="5" cols="35"></textarea>`;
 
@@ -145,3 +146,4 @@ export function createKeys() {
     return fragment;
    
 }
+
