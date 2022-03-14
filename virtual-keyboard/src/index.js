@@ -195,7 +195,7 @@ window.addEventListener('beforeunload', () => {
 
 
 //TODO
-
+// сделать нормальный Html creator
 //ДОП. удаление выделением backspace
 
 // PROFIT!!!

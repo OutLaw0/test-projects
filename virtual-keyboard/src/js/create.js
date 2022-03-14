@@ -71,47 +71,42 @@ export function createKeys() {
 
             case "Ctrl":
                 // keyElement.classList.add("keyboard__key--wide");
-              //  keyElement.classList.add(this.keyLayout.keyboardOrder[index])
+            
                 keyElement.innerHTML = createSpecKey("Ctrl")
                 break;
 
             case "Alt":
                 // keyElement.classList.add("keyboard__key--wide");
-                //keyElement.classList.add(this.keyLayout.keyboardOrder[index])
+            
                 keyElement.innerHTML = createSpecKey("Alt")
                 break;
 
             case "Tab":
-                //keyElement.classList.add("keyboard__key--wide")
-               // keyElement.classList.add(this.keyLayout.keyboardOrder[index])
+             //   keyElement.classList.add("keyboard__key--semi-wide")
                 keyElement.innerHTML = createSpecKey("Tab")
                 
                 break;
 
             case "enter":
                 keyElement.classList.add("keyboard__key--wide");
-               // keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createIconHtml("keyboard_return");
                
                 break;
 
             case "space":
                 keyElement.classList.add("keyboard__key--extra-wide");
-               // keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createIconHtml("space_bar");
                
                 break;
 
             case "caps":
                 keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
-               // keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createIconHtml("keyboard_capslock")
                
                 break;
 
             case "Shift":
                 keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
-               // keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createSpecKey("Shift")
                
                 break;
@@ -119,29 +114,24 @@ export function createKeys() {
 
             case "changeLang":
                 keyElement.classList.add("keyboard__key--dark");
-              //  keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createIconHtml("language");
               
                 break;
 
             case "Del":
-                //keyElement.classList.add("keyboard__key--wide");
+               // keyElement.classList.add("keyboard__key--semi-wide");
                 keyElement.innerHTML = createSpecKey("Del");
-              //  keyElement.classList.add(this.keyLayout.keyboardOrder[index])
 
                 break;
 
             case "Close":
                 keyElement.classList.add("keyboard__key--wide", "keyboard__key--dark");
-             //   keyElement.classList.add(this.keyLayout.keyboardOrder[index])
                 keyElement.innerHTML = createIconHtml("check_circle");
                 
                 break;
 
             default:
                 keyElement.innerHTML = key.toLowerCase();
-              //  keyElement.classList.add(this.keyLayout.keyboardOrder[index])
-
                 break;
         }
         fragment.appendChild(keyElement);

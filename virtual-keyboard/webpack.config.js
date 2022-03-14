@@ -19,7 +19,7 @@ module.exports = {
         assetModuleFilename: "assets/[name][ext][query]", // "assets/[hash][ext][query]",
         clean: true
     },
-    //devtool: 'eval-source-map',
+    devtool: 'eval-source-map',
     devServer: {
         hot: false, // Включает автоматическую перезагрузку страницы при изменениях
     },
