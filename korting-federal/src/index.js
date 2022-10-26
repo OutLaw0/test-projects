@@ -35,7 +35,6 @@ function createSelectList() {
 }
 createSelectList();
 
-
 function createResultList(city) {
   const fragment = document.createDocumentFragment();
 
@@ -45,8 +44,8 @@ function createResultList(city) {
       const itemList = document.createElement('div');
       itemList.classList.add("dropdown__result-item");
       itemList.setAttribute("data-id", item.id);
-      const itemListInner = `<div class="item__image"><img src="${imgLink}" alt="${item.name} logo"></div>
-      <a href="http://ya.ru/" target="_blank" rel="noopener noreferrer">Перейти к партнеру</a>`
+      const itemListInner = `<div class="item__image">
+      <a href="http://ya.ru/" target="_blank" rel="noopener noreferrer"><img src="${imgLink}" alt="${item.name} logo"></a></div>`
       itemList.insertAdjacentHTML('beforeend', itemListInner);
       fragment.appendChild(itemList)
     }
@@ -88,5 +87,95 @@ function filterFunction() {
   }
   if (filter === '') {
     createResultList('')
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  // конечная дата, например 1 июля 2021
+  const deadline = new Date(2022, 11, 1);
+  // id таймера
+  let timerId = null;
+  // получаем элементы, содержащие компоненты даты
+  const $days = document.getElementsByClassName("section__timer-day")[0]
+  const $hours = document.getElementsByClassName("section__timer-hour")[0]
+  const $minutes = document.getElementsByClassName("section__timer-minute")[0]
+  const $daysText = document.getElementsByClassName("section__timer-day-text")[0]
+  const $hoursText = document.getElementsByClassName("section__timer-hour-text")[0]
+  const $minutesText = document.getElementsByClassName("section__timer-minute-text")[0]
+  // склонение числительных
+  function declensionNum(num, words) {
+    return words[(num % 100 > 4 && num % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(num % 10 < 5) ? num % 10 : 5]];
+  }
+  // вычисляем разницу дат и устанавливаем оставшееся времени в качестве содержимого элементов
+  function countdownTimer() {
+    const diff = deadline - new Date();
+    if (diff <= 0) {
+      clearInterval(timerId);
+    }
+    const days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) : 0;
+    const hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0;
+    const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
+    $days.textContent = days < 10 ? '0' + days : days;
+    $hours.textContent = hours < 10 ? '0' + hours : hours;
+    $minutes.textContent = minutes < 10 ? '0' + minutes : minutes;
+    $daysText.textContent = declensionNum(days, ['день', 'дня', 'дней']);
+    $hoursText.textContent = declensionNum(hours, ['час', 'часа', 'часов']);
+    $minutesText.textContent = declensionNum(minutes, ['минута', 'минуты', 'минут']);
+  }
+
+  // вызываем функцию countdownTimer
+  countdownTimer();
+  // вызываем функцию countdownTimer каждую секунду
+  timerId = setInterval(countdownTimer, 8000);
+});
+
+
+
+const progressbar = document.getElementsByClassName("section__timer-wrapper")[0];
+progressbar.addEventListener('click', startTimer);
+
+function startTimer() {
+  const quad1 = document.querySelector('.quad1')
+  const quad2 = document.querySelector('.quad2')
+  const quad3 = document.querySelector('.quad3')
+  const quad4 = document.querySelector('.quad4')
+
+  const progInc = setInterval(incrementProg, 1000);
+
+  function incrementProg() {
+    let progress = progressbar.getAttribute('data-progress');
+    progress++;
+    progressbar.setAttribute('data-progress', progress);
+    setPie(progress);
+    if (progress == 100) {
+      clearInterval(progInc);
+    }
+  }
+
+  function setPie(progress) {
+    if (progress <= 25) {
+      quad1.setAttribute('style', 'transform: skew(' + progress * (-90 / 25) + 'deg)');
+    }
+    /* От 25 до 50: скрыть 1-й квадрант + изменить угол перекоса 2-го квадранта */
+    else if (progress > 25 && progress <= 50) {
+      quad1.setAttribute('style', 'transform: skew(-90deg)'); // полностью скрывает 1-й квадрант
+      quad2.setAttribute('style', 'transform: skewY(' + (progress - 25) * (90 / 25) + 'deg)');
+      progressbar.setAttribute('style', 'box-shadow: inset 0px 0px 0px 25px #e8f9fe');
+    }
+    /* От 50 до 75: скрыть первые 2 квадранта + изменить угол наклона 3-го квадранта. */
+    else if (progress > 50 && progress <= 75) {
+      quad1.setAttribute('style', 'transform: skew(-90deg)'); // полностью скрывает 1-й
+      quad2.setAttribute('style', 'transform: skewY(90deg)'); // полностью скрывает второй
+      quad3.setAttribute('style', 'transform: skew(' + (progress - 50) * (-90 / 25) + 'deg)');
+      progressbar.setAttribute('style', 'box-shadow: inset 0px 0px 0px 25px #e8f9fe');
+    }
+    /* Аналогично приведенному выше для значения от 75 до 100 */
+    else if (progress > 75 && progress <= 100) {
+      quad1.setAttribute('style', 'transform: skew(-90deg)'); // hides 1st completely
+      quad2.setAttribute('style', 'transform: skewY(90deg)'); // hides 2nd completely
+      quad3.setAttribute('style', 'transform: skew(-90deg)'); // hides 3rd completely
+      quad4.setAttribute('style', 'transform: skewY(' + (progress - 75) * (90 / 25) + 'deg)');
+      progressbar.setAttribute('style', 'box-shadow: inset 0px 0px 0px 25px #e8f9fe');
+    }
   }
 }
