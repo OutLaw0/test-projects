@@ -3,14 +3,14 @@
     "id": 1,
     "name": "DNS",
     "allCity": true,
-    "imgSrc": "/partners/dns.jpg",
+    "imgSrc": "/partners/DNS-Logo.png",
     "city": []
   },
   {
     "id": 2,
     "name": "HOLODILNIK.RU",
     "allCity": false,
-    "imgSrc": "/partners/holodilnik.png",
+    "imgSrc": "/partners/holodilnikru_logo.png",
     "city": [
       "Москва",
       "Санкт-Петербург",
@@ -92,14 +92,14 @@
     "id": 5,
     "name": "Кухни Беларуси",
     "allCity": false,
-    "imgSrc": "",
+    "imgSrc": "/partners/kuhni_bel.jpg",
     "city": ["Москва"]
   },
   {
     "id": 6,
     "name": "Онлайн трейд.ру",
     "allCity": false,
-    "imgSrc": "/partners/onlineTreid.png",
+    "imgSrc": "/partners/onlinetrade.jpg",
     "city": [
       "Адлер",
       "Алексин",
@@ -405,7 +405,7 @@
     "id": 13,
     "name": "Лазурит",
     "allCity": true,
-    "imgSrc": "/partners/lazurit.jpg",
+    "imgSrc": "/partners/lazurit.png",
     "city": []
   },
   {
