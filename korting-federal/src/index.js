@@ -90,9 +90,7 @@ function filterFunction() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  document.getElementsByClassName("middle")[0].style.padding = '0';
-  document.getElementsByClassName("page__title ")[0].style.display = 'none';
+function startTimer() {
   // конечная дата, например 1 июля 2021
   const deadline = new Date(2022, 11, 1);
   // id таймера
@@ -111,9 +109,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // вычисляем разницу дат и устанавливаем оставшееся времени в качестве содержимого элементов
   function countdownTimer() {
     const diff = deadline - new Date();
+    startCircleTimer(diff);
+
     if (diff <= 0) {
       clearInterval(timerId);
     }
+    console.log(diff)
     const days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) : 0;
     const hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0;
     const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
@@ -127,29 +128,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // вызываем функцию countdownTimer
   countdownTimer();
+
   // вызываем функцию countdownTimer каждую секунду
   timerId = setInterval(countdownTimer, 8000);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  startTimer();
+  document.getElementsByClassName("middle")[0].style.padding = '0';
+  document.getElementsByClassName("page__title")[0].style.display = 'none';
 });
 
-
 const progressbar = document.getElementsByClassName("section__timer-wrapper")[0];
-progressbar.addEventListener('click', startTimer);
+//progressbar.addEventListener('click', startCircleTimer);
 
-function startTimer() {
-  const quad1 = document.querySelector('.quad1')
-  const quad2 = document.querySelector('.quad2')
-  const quad3 = document.querySelector('.quad3')
-  const quad4 = document.querySelector('.quad4')
+function startCircleTimer(diff) {
+  const quad1 = document.getElementsByClassName('quad1')[0];
+  const quad2 = document.getElementsByClassName('quad2')[0];
+  const quad3 = document.getElementsByClassName('quad3')[0];
+  const quad4 = document.getElementsByClassName('quad4')[0];
 
-  const progInc = setInterval(incrementProg, 1000);
+  incrementProg(diff)
 
-  function incrementProg() {
-    let progress = progressbar.getAttribute('data-progress');
-    progress++;
-    progressbar.setAttribute('data-progress', progress);
-    setPie(progress);
-    if (progress == 100) {
-      clearInterval(progInc);
+  function incrementProg(diff) {
+    const maxDays = 2592000000;
+    let progress = Math.floor((maxDays - diff) / maxDays * 100)
+    console.log(progress)
+    if (progress > 100) {
+      progress = 100
+    }
+    if (progress > 0) {
+      setPie(progress);
     }
   }
 
@@ -171,12 +180,47 @@ function startTimer() {
       progressbar.setAttribute('style', 'box-shadow: inset 0px 0px 0px 25px #e8f9fe');
     }
     /* Аналогично приведенному выше для значения от 75 до 100 */
-    else if (progress > 75 && progress <= 100) {
+    else if (progress > 75 && progress < 100) {
       quad1.setAttribute('style', 'transform: skew(-90deg)'); // hides 1st completely
       quad2.setAttribute('style', 'transform: skewY(90deg)'); // hides 2nd completely
       quad3.setAttribute('style', 'transform: skew(-90deg)'); // hides 3rd completely
       quad4.setAttribute('style', 'transform: skewY(' + (progress - 75) * (90 / 25) + 'deg)');
       progressbar.setAttribute('style', 'box-shadow: inset 0px 0px 0px 25px #e8f9fe');
     }
+    else {
+      quad1.setAttribute('style', 'transform: skew(-90deg)'); // hides 1st completely
+      quad2.setAttribute('style', 'transform: skewY(90deg)'); // hides 2nd completely
+      quad3.setAttribute('style', 'transform: skew(-90deg)'); // hides 3rd completely
+      quad4.setAttribute('style', 'transform: skewY(90deg)');
+      progressbar.setAttribute('style', 'box-shadow: inset 0px 0px 0px 25px #ff8100');
+    }
   }
 }
+
+const sections = document.getElementsByClassName('section__wrapper');
+
+window.addEventListener("scroll", () => {
+  const y = window.innerHeight;
+  const sectionMax = { max: 0, sectionId: '' };
+  for (const section of sections) {
+    const rect = section.getBoundingClientRect();
+    // console.log(y, rect, section.id);
+    if (rect.top < y && rect.bottom > 0) {
+      const bottom = rect.bottom > y ? y : rect.bottom;
+      const top = rect.top > 0 ? rect.top : 0;
+      const diff = (bottom - top)
+      if (diff > sectionMax.max) {
+        sectionMax.max = diff;
+        sectionMax.sectionId = section.id;
+      }
+    }
+  }
+  console.log(sectionMax.sectionId);
+  const sectionId = sectionMax.sectionId;
+  // дизактивируем все активные ссылки
+  document.querySelector('.navigation-block-dot.active').classList.remove("active");
+  // активируем текущую
+  const navigationContainer = document.getElementById(sectionId);
+  navigationContainer.querySelector(`[href*=${sectionId}]`).firstElementChild.classList.add("active")
+
+});
