@@ -91,6 +91,8 @@ function filterFunction() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+  document.getElementsByClassName("middle")[0].style.padding = '0';
+  document.getElementsByClassName("page__title ")[0].style.display = 'none';
   // конечная дата, например 1 июля 2021
   const deadline = new Date(2022, 11, 1);
   // id таймера
@@ -128,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // вызываем функцию countdownTimer каждую секунду
   timerId = setInterval(countdownTimer, 8000);
 });
-
 
 
 const progressbar = document.getElementsByClassName("section__timer-wrapper")[0];
