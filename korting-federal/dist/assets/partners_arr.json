@@ -4,6 +4,7 @@
     "name": "DNS",
     "allCity": true,
     "imgSrc": "/partners/DNS-Logo.png",
+    "brandLink": "https://www.dns-shop.ru/",
     "city": []
   },
   {
@@ -11,6 +12,7 @@
     "name": "HOLODILNIK.RU",
     "allCity": false,
     "imgSrc": "/partners/holodilnikru_logo.png",
+    "brandLink": "https://www.holodilnik.ru/",
     "city": [
       "Москва",
       "Санкт-Петербург",
@@ -37,6 +39,7 @@
     "name": "Кухонный двор",
     "allCity": false,
     "imgSrc": "/partners/kuh_dvor.png",
+    "brandLink": "https://www.kuxni.net/",
     "city": [
       "Анапа",
       "Арзамас",
@@ -86,6 +89,7 @@
     "name": "ЛайтКухни",
     "allCity": false,
     "imgSrc": "/partners/laithKuhni.png",
+    "brandLink": "https://kuhni-lite.ru/",
     "city": ["Москва", "Балашиха", "Мытищи", "Красногорск", "Люберцы", "Краснодар"]
   },
   {
@@ -93,6 +97,7 @@
     "name": "Кухни Беларуси",
     "allCity": false,
     "imgSrc": "/partners/kuhni_bel.jpg",
+    "brandLink": "https://www.kuhnibelarusi.ru/",
     "city": ["Москва"]
   },
   {
@@ -100,6 +105,7 @@
     "name": "Онлайн трейд.ру",
     "allCity": false,
     "imgSrc": "/partners/onlinetrade.jpg",
+    "brandLink": "https://www.onlinetrade.ru/",
     "city": [
       "Адлер",
       "Алексин",
@@ -215,6 +221,7 @@
     "name": "Зетта",
     "allCity": false,
     "imgSrc": "/partners/zettaLogo.jpg",
+    "brandLink": "https://zetta.ru/",
     "city": ["Москва", "Калуга", "Тамбов", "Владикавказ"]
   },
   {
@@ -222,6 +229,7 @@
     "name": "Mr.Doors",
     "allCity": false,
     "imgSrc": "/partners/mrDoors.jpg",
+    "brandLink": "https://www.mrdoors.ru/",
     "city": [
       "Балашиха",
       "Барнаул",
@@ -284,6 +292,7 @@
     "name": "DMI",
     "allCity": false,
     "imgSrc": "/partners/dmi2.png",
+    "brandLink": "https://dyatkovo.ru/",
     "city": [
       "Москва",
       "Санкт-Петербург",
@@ -315,6 +324,7 @@
     "name": "Первая Мебельная фабрика",
     "allCity": false,
     "imgSrc": "/partners/pm_logo_prew.jpg",
+    "brandLink": "https://www.1mf.ru/",
     "city": [
       "Санкт-Петербург",
       "Москва",
@@ -335,6 +345,7 @@
     "name": "Планета",
     "allCity": false,
     "imgSrc": "/partners/planeta.jpg",
+    "brandLink": "https://planeta-ufa.ru/",
     "city": ["Уфа", "Красноярск", "Новокузнецк", "Новосибирск", "Пермь", "Санкт-Петербург"]
   },
   {
@@ -342,6 +353,7 @@
     "name": "Лорена",
     "allCity": false,
     "imgSrc": "/partners/logo_LORENA_KUHNI_white.png",
+    "brandLink": "https://lorena-kuhni.ru/",
     "city": [
       "Альметьевск",
       "Анапа",
@@ -406,6 +418,7 @@
     "name": "Лазурит",
     "allCity": true,
     "imgSrc": "/partners/lazurit.png",
+    "brandLink": "https://lazurit.com/",
     "city": []
   },
   {
@@ -413,6 +426,7 @@
     "name": "Дриада",
     "allCity": false,
     "imgSrc": "/partners/Logo Driada.jpg",
+    "brandLink": "https://kuhni-driada.ru/",
     "city": [
       "Анапа",
       "Астрахань",
@@ -470,6 +484,45 @@
       "Черкесск",
       "Южно-Сахалинск",
       "Ярославль"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Техпорт",
+    "allCity": false,
+    "imgSrc": "/partners/techport.jpg",
+    "brandLink": "https://www.techport.ru/",
+    "city": [
+      "Москва",
+      "Санкт-Петербург",
+      "Брянск",
+      "Владимир",
+      "Волгоград",
+      "Воронеж",
+      "Дзержинск",
+      "Екатеринбург",
+      "Иваново",
+      "Казань",
+      "Калуга",
+      "Ковров",
+      "Кострома",
+      "Лабытнанги",
+      "Липецк",
+      "Муром",
+      "Нижний-Новгород",
+      "Орёл",
+      "Пермь",
+      "Петрозаводск",
+      "Рыбинск",
+      "Рязань",
+      "Салехард",
+      "Серпухов",
+      "Ступино",
+      "Тверь",
+      "Тула",
+      "Тутаев",
+      "Ярославль",
+      "Ясногорск"
     ]
   }
 ]
