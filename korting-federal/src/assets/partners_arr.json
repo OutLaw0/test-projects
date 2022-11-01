@@ -1,5 +1,13 @@
 [
   {
+    "id": 0,
+    "name": "Korting",
+    "allCity": true,
+    "imgSrc": "/partners/korting.png",
+    "brandLink": "https://store.korting.ru/",
+    "city": []
+  },
+  {
     "id": 1,
     "name": "DNS",
     "allCity": true,
