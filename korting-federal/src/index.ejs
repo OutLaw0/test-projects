@@ -5,15 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="./assets/favicon.ico" />
+  <link rel="icon" href="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/favicon.ico" />
   <title>Federal</title>
 </head>
 
 <body>
   <div class='wrapper__federal'>
     <div class='federal__main-image'>
-      <img class='federal__main-image--big' src="./assets/Bilboard 6000x3000 print 1.jpg" alt="main-image">
-      <img class='federal__main-image--small' src="./assets/Bilboard mobile.jpg" alt="main-image">
+      <img class='federal__main-image--big' src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/Bilboard 6000x3000 print 1.jpg" alt="main-image">
+      <img class='federal__main-image--small' src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/Bilboard mobile.jpg" alt="main-image">
     </div>
     <div id="section-one" class="section__wrapper">
       <div class="section__navigation">
@@ -40,9 +40,9 @@
       </div>
       <section class="section section-one">
         <div class="section__left">
-          <img class="image1" src="./assets/section1/3.png" alt="3.png">
-          <img class="image2" src="./assets/section1/=.png" alt="=.png">
-          <img class="image3" src="./assets/section1/4.png" alt="4.png">
+          <img class="image1" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/section1/3.png" alt="3.png">
+          <img class="image2" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/section1/=.png" alt="=.png">
+          <img class="image3" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/section1/4.png" alt="4.png">
         </div>
         <div class="section__right">
           <div class="section__title">Акция 1+1+1=4</div>
@@ -87,9 +87,9 @@
           <div class="section__title"><span class="section__title--big">KDI 60110</span></div>
           <div class="section__rich">
             <div class="section__rich-item">
-              <span class="rich__title-icon"><img src="./assets/gabarity-icon.png" alt="gabarity-icon.png"></span>
+              <span class="rich__title-icon"><img src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/gabarity-icon.png" alt="gabarity-icon.png"></span>
               <div class="rich__title"><span class="rich__title-text">Большие габариты</span>
-                <span class="rich__title-image"><img src="./assets/Line 1-1.png" alt="Line 1-1.png"></span>
+                <span class="rich__title-image"><img src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/Line 1-1.png" alt="Line 1-1.png"></span>
               </div>
               <div class="rich__text">
                 Полноразмерная посудомоечная
@@ -99,9 +99,9 @@
               </div>
             </div>
             <div class="section__rich-item">
-              <span class="rich__title-icon"><img src="./assets/vmestimost-icon.png" alt="vmestimost-icon.png"></span>
+              <span class="rich__title-icon"><img src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/vmestimost-icon.png" alt="vmestimost-icon.png"></span>
               <div class="rich__title"><span class="rich__title-text">Вместительность</span>
-                <span class="rich__title-image"><img src="./assets/Line 1-2.png" alt="Line 1-2.png"></span>
+                <span class="rich__title-image"><img src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/Line 1-2.png" alt="Line 1-2.png"></span>
               </div>
               <div class="rich__text">
                 Внутреннее пространство
@@ -110,9 +110,9 @@
               </div>
             </div>
             <div class="section__rich-item">
-              <span class="rich__title-icon"><img src="./assets/star-icon.png" alt="star-icon.png"></span>
+              <span class="rich__title-icon"><img src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/star-icon.png" alt="star-icon.png"></span>
               <div class="rich__title"><span class="rich__title-text">5 программ мойки</span>
-                <span class="rich__title-image"><img src="./assets/Line 1-3.png" alt="Line 1-3.png"></span>
+                <span class="rich__title-image"><img src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/Line 1-3.png" alt="Line 1-3.png"></span>
               </div>
               <div class="rich__text">
                 Пять наиболее необходимых и
@@ -129,8 +129,8 @@
         </div>
         <div class="section__right">
           <div class="section__title"><span class="section__title--small">Посудомоечная машина KDI 60110</div>
-          <img class="section__image-model" src="./assets/KDI45139.jpg" alt="KDI45139.png">
-          <img class="section__image-model--small" src="./assets/KDI45140.png" alt="KDI45139.png">
+          <img class="section__image-model" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/KDI45139.jpg" alt="KDI45139.png">
+          <img class="section__image-model--small" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/KDI45140.png" alt="KDI45139.png">
         </div>
       </section>
     </div>
@@ -160,17 +160,17 @@
       <section class="section section-three">
         <div class="section__left">
           <div class="section__title"><span class="section__title--small">Посудомоечная машина KDI 45140</div>
-          <img class="section__image-model" src="./assets/KDI45140.jpg" alt="KDI45139.png">
-          <img class="section__image-model--small" src="./assets/KDI45141.png" alt="KDI45139.png">
+          <img class="section__image-model" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/KDI45140.jpg" alt="KDI45139.png">
+          <img class="section__image-model--small" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/KDI45141.png" alt="KDI45139.png">
         </div>
         <div class="section__right">
 
           <div class="section__title"><span class="section__title--big">KDI 45140</span></div>
           <div class="section__rich">
             <div class="section__rich-item">
-              <span class="rich__title-icon"><img src="./assets/gabarity-icon.png" alt="gabarity-icon.png"></span>
+              <span class="rich__title-icon"><img src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/gabarity-icon.png" alt="gabarity-icon.png"></span>
               <div class="rich__title">
-                <span class="rich__title-image line2-1"><img src="./assets/Line 2-1.png" alt="Line 2-1.png"></span>
+                <span class="rich__title-image line2-1"><img src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/Line 2-1.png" alt="Line 2-1.png"></span>
                 <span class="rich__title-text">Уменьшенные габариты</span>
               </div>
               <div class="rich__text">
@@ -181,9 +181,9 @@
               </div>
             </div>
             <div class="section__rich-item">
-              <span class="rich__title-icon"><img src="./assets/vmestimost-icon.png" alt="vmestimost-icon.png"></span>
+              <span class="rich__title-icon"><img src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/vmestimost-icon.png" alt="vmestimost-icon.png"></span>
               <div class="rich__title">
-                <span class="rich__title-image line2-2"><img src="./assets/Line 2-2.png" alt="Line 2-2.png"></span>
+                <span class="rich__title-image line2-2"><img src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/Line 2-2.png" alt="Line 2-2.png"></span>
                 <span class="rich__title-text">Вместительность</span>
               </div>
               <div class="rich__text">
@@ -193,9 +193,9 @@
               </div>
             </div>
             <div class="section__rich-item">
-              <span class="rich__title-icon"><img src="./assets/star-icon.png" alt="star-icon.png"></span>
+              <span class="rich__title-icon"><img src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/star-icon.png" alt="star-icon.png"></span>
               <div class="rich__title">
-                <span class="rich__title-image line2-3"><img src="./assets/Line 2-3.png" alt="Line 2-3.png"></span>
+                <span class="rich__title-image line2-3"><img src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/Line 2-3.png" alt="Line 2-3.png"></span>
 
                 <span class="rich__title-text">5 программ мойки</span>
               </div>
@@ -248,62 +248,62 @@
           <div class="section__main-text">Период проведения акции
             01.11.22 - 30.11.22
           </div>
-          <div class="section__button-link"><a href="/promo/federal/assets/Terms_of_the_promotion_Korting.pdf"
+          <div class="section__button-link"><a href="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/Terms_of_the_promotion_Korting.pdf"
               target="_blank" class="section__button-link--link">Все условия акции pdf</a></div>
 
         </div>
         <div class="section__right">
           <div class="section__rules">
             <div class="section__rule">
-              <img class="section__rule-img" src="./assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 Период проведения акции
                 01.11.22 - 30.11.22
               </div>
             </div>
             <div class="section__rule">
-              <img class="section__rule-img" src="./assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 Для получения подарка, купленный комплект должен
                 состоять из трех приборов бытовой техники KÖRTING
               </div>
             </div>
             <div class="section__rule">
-              <img class="section__rule-img" src="./assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 В акции участвует весь ассортимент отдельностоящей и встраиваемой крупной бытовой техники бренда KÖRTING
 
               </div>
             </div>
             <div class="section__rule">
-              <img class="section__rule-img" src="./assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 Подарочным прибором является встраиваемая
                 посудомоечная машина KÖRTING KDI 45140 или KDI 60110
               </div>
             </div>
             <div class="section__rule">
-              <img class="section__rule-img" src="./assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 Все приборы в комплекте должны быть из разных
                 товарных категорий актуального ассортимента KÖRTING
               </div>
             </div>
             <div class="section__rule">
-              <img class="section__rule-img" src="./assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 Организатор оставляет за собой право на преждевременную
                 остановку акции и изменение ее сроков
               </div>
             </div>
             <div class="section__rule">
-              <img class="section__rule-img" src="./assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 Скидки не суммируются со скидками из других акций
               </div>
             </div>
             <div class="section__rule">
-              <img class="section__rule-img" src="./assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 Все приборы в комплекте должны соответствовать
                 актуальному ассортименту KÖRTING
@@ -354,7 +354,7 @@
               <div id="myDropdown" class="dropdown-wrapper">
                 <div class="dropdown__input">
                   <input type="text" placeholder="Поиск.." id="myInput" value="Москва">
-                  <span class="dropdown__input-close"><img src="./assets/close.png" alt="close.png"></span>
+                  <span class="dropdown__input-close"><img src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/close.png" alt="close.png"></span>
                 </div>
                 <ul class="dropdown-content">
                 </ul>

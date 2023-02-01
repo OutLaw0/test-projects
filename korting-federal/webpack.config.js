@@ -2,8 +2,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-
+const webpack = require('webpack');
 const path = require('path');
+
+/* global API_URL */
+const API_URL = {
+  production: JSON.stringify('/promo/federal/'),
+  development: JSON.stringify('')
+}
 
 let mode = 'development'
 if (process.env.NODE_ENV === 'production') {
@@ -44,7 +50,8 @@ module.exports = {
       filename: 'style.css' //'[name].[contenthash].css'
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.ejs',
+      env: API_URL[mode]
     }),
     new CopyPlugin({
       patterns: [
@@ -54,7 +61,10 @@ module.exports = {
         }
       ]
     }),
-    new ESLintPlugin()
+    new ESLintPlugin(),
+    new webpack.DefinePlugin({
+      'API_URL': API_URL[mode]
+    }),
   ],
   module: {
     rules: [{
