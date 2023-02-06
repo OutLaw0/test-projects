@@ -1,0 +1,51 @@
+[
+  {
+    "id": 0,
+    "name": "KORTING KWM 40B1060",
+    "price": "40 990 ₽",
+    "imgSrc": "/slider/KWM_40B1060.png",
+    "sub_name": "Узкая стиральная машина"
+  },
+  {
+    "id": 1,
+    "name": "KORTING KMI 825 TGN",
+    "price": "43 990 ₽",
+    "imgSrc": "/slider/KMI_825_TGN.png",
+    "sub_name": "Микроволновая печь"
+  },
+  {
+    "id": 2,
+    "name": "KORTING KDF 45240",
+    "price": "35 990 ₽",
+    "imgSrc": "/slider/KDF_45240.png",
+    "sub_name": "Отдельностоящая посудомоечная машина"
+  },
+  {
+    "id": 3,
+    "name": "KORTING KDI 60110",
+    "price": "41 990 ₽",
+    "imgSrc": "/slider/KDI_60110.png",
+    "sub_name": "Посудомоечная машина"
+  },
+  {
+    "id": 4,
+    "name": "KORTING KDF 60060",
+    "price": "38 990 ₽",
+    "imgSrc": "/slider/KDF_60060.png",
+    "sub_name": "Отдельностоящая посудомоечная машина"
+  },
+  {
+    "id": 5,
+    "name": "KORTING KDI 45140",
+    "price": "41 990 ₽",
+    "imgSrc": "/slider/KDI_45140.png",
+    "sub_name": "Посудомоечная машина"
+  },
+  {
+    "id": 6,
+    "name": "KORTING KMI 825 XN",
+    "price": "38 990 ₽",
+    "imgSrc": "/slider/KMI_825_XN.png",
+    "sub_name": "Микроволновая печь"
+  }
+]

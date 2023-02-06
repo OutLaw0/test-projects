@@ -14,32 +14,41 @@
     <div id="section-one" class="section__wrapper">
       <section class="section section-one">
         <div class="section__left">
-     
-          <div class="section__title">Korting дарит подарки!</div>
-          <div class="section__main-text">Покупай набор техники кертинг 
-            и получай гарантированный подарок</div>
+
+          <div class="section__title">
+            <img class="image_first_screen_text" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/first_screen_text.png"
+              alt="first_screen_text.png">
+          </div>
+          <div class="section__main-text">При покупке комплекта бытовой техники</div>
           <div class="section__button-link">
-            <a href="#section-four" class="section__button-link--link">Узнать условия акции</a>
+            <a href="#section-three" class="section__button-link--link">Выбрать подарки</a>
           </div>
         </div>
         <div class="section__right">
-          <img class="image1" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/first_screen_big_1.png" alt="First_screen_big.png">
-  
+          <img class="first_screen_banner_logo" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/first_screen_banner_logo.png"
+            alt="first_screen_banner_logo.png">
+
         </div>
       </section>
     </div>
     <div id="section-two" class="section__wrapper">
       <section class="section section-two">
         <div class="section__left">
-          <div class="section__title">Покупайте бытовую технику Korting</div>
-          <div class="section__button-link gradient">
-            <a href="#section-four" class="section__button-link--link">3 прибора</a>
+          <div class="section__title">Покупайте <a href="#section-three"
+              class="section__button-link--link gradient_2_1">3 прибора</a> бытовой техники</div>
+          <div class="section__button-link">
+            <img class="section2_logo" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/section2_logo.png"
+              alt="section2_logo">
+            <img class="image_section2_arrow"
+              src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/section2_arrow.png" alt="section2_arrow">
           </div>
         </div>
-        <div class="section__left">
-          <div class="section__title">Получаете в подарок бытовую технику </div>
+        <div class="section__right">
+          <div class="section__title">Получайте в подарок</div>
           <div class="section__button-link gradient">
-            <a href="#section-four" class="section__button-link--link">подарок от 40 000 ₽</a>
+            <a href="#section-three" class="section__button-link--link gradient_2_2">стиральная машина</a>
+            <a href="#section-three" class="section__button-link--link gradient_2_2">микроволновая печь</a>
+            <a href="#section-three" class="section__button-link--link gradient_2_2">посудомоечная машина</a>
           </div>
         </div>
       </section>
@@ -47,11 +56,83 @@
     <div id="section-three" class="section__wrapper">
       <section class="section section-three">
         <div class="section__left">
-          <div class="section__title">Выбирай свой подарок</div>
-          <div class="section__main-text">При покупке 3 приборов бытовой техники KÖRTING один из предметов крупной бытовой техники в подарок</div>
+          <div class="section__title">Выбирайте свой подарок</div>
+          <div class="section__main-text">При покупке 3-х приборов бытовой техники Korting, вы получаете на выбор:</div>
         </div>
         <div class="section__right">
-          <img class="image1" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/section3.png" alt="First_screen_big.png">
+          <div class="section__right__slider slider">
+            <div class="slider__arrow icon-Arrow-left">
+              <img class="image_arrow-left" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/arrow.png"
+                alt="arrow-left">
+            </div>
+            <div class="slider__wrapper">
+              <div class="main__items">
+                <!--<div class="slider__items">
+                  <div class="slider__item" data-pet="KORTING KWM 40B1060">
+                    <div class="slider__item-top">
+                      <div class="slider__item-top_background"></div>
+                      <img class="slider__item_image"
+                        src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/slider/KWM_40B1060.png"
+                        alt="KWM_40B1060">
+                    </div>
+                    <div class="slider__item-title">KORTING KWM 40B1060</div>
+                    <div class="slider__item-subtitle">Узкая стиральная машина</div>
+                    <div class="slider__item-price">
+                      <span class="slider__item-price_real">40 990 ₽</span>
+                      <span class="slider__item-price_null">0 ₽</span>
+                    </div>
+                  </div>
+                  <div class="slider__item" data-pet="KORTING KMI 825 TGN">
+                    <div class="slider__item-top">
+                      <div class="slider__item-top_background"></div>
+                      <img class="slider__item_image"
+                        src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/slider/KMI_825_TGN.png"
+                        alt="KMI_825_TGN">
+                    </div>
+                    <div class="slider__item-title">KORTING KMI 825 TGN</div>
+                    <div class="slider__item-subtitle">Микроволновая печь</div>
+                    <div class="slider__item-price">
+                      <span class="slider__item-price_real">43 990 ₽</span>
+                      <span class="slider__item-price_null">0 ₽</span>
+                    </div>
+                  </div>
+                  <div class="slider__item " data-pet="KORTING KDF 45240">
+                    <div class="slider__item-top">
+                      <div class="slider__item-top_background"></div>
+                      <img class="slider__item_image"
+                        src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/slider/KDF_45240.png"
+                        alt="KDF_45240">
+                    </div>
+                    <div class="slider__item-title">KORTING KDF 45240</div>
+                    <div class="slider__item-subtitle">Отдельностоящая посудомоечная машина</div>
+                    <div class="slider__item-price">
+                      <span class="slider__item-price_real">35 990 ₽</span>
+                      <span class="slider__item-price_null">0 ₽</span>
+                    </div>
+                  </div>
+                  <div class="slider__item " data-pet="KORTING KDI 60110">
+                    <div class="slider__item-top">
+                      <div class="slider__item-top_background"></div>
+                      <img class="slider__item_image"
+                        src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/slider/KDI_60110.png"
+                        alt="KDF_45240">
+                    </div>
+                    <div class="slider__item-title">KORTING KDI 60110</div>
+                    <div class="slider__item-subtitle">Посудомоечная машина</div>
+                    <div class="slider__item-price">
+                      <span class="slider__item-price_real">41 990 ₽</span>
+                      <span class="slider__item-price_null">0 ₽</span>
+                    </div>
+                  </div>
+                </div>-->
+              </div>
+            </div>
+            <div class="slider__arrow icon-Arrow-right">
+              <img class="image_arrow-right" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/arrow.png"
+                alt="arrow-right">
+            </div>
+          </div>
+        </div>
       </section>
     </div>
     <div id="section-four" class="section__wrapper">
@@ -61,61 +142,71 @@
           <div class="section__main-text">Период проведения акции
             01.02.23 - 31.03.23
           </div>
-          <div class="section__button-link"><a href="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/Terms_of_the_promotion_Korting.pdf"
+          <div class="section__button-link"><a
+              href="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/Terms_of_the_promotion_Korting.pdf"
               target="_blank" class="section__button-link--link">Все условия акции pdf</a></div>
 
         </div>
         <div class="section__right">
           <div class="section__rules">
             <div class="section__rule">
-              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img"
+                src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 Период проведения акции
                 01.02.23 - 31.03.23
               </div>
             </div>
             <div class="section__rule">
-              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img"
+                src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 Для получения подарка, купленный комплект должен
                 состоять из трех приборов бытовой техники KÖRTING
               </div>
             </div>
             <div class="section__rule">
-              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img"
+                src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 В акции участвует весь ассортимент отдельностоящей и встраиваемой крупной бытовой техники бренда KÖRTING
 
               </div>
             </div>
             <div class="section__rule">
-              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img"
+                src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
-                Подарочным прибором является KMI 825 XN, KMI 825 TGN, KDI 45140, KDI 60110, KDF 45240, KDF 60060, KWM 40B1060
+                Подарочным прибором является KMI 825 XN, KMI 825 TGN, KDI 45140, KDI 60110, KDF 45240, KDF 60060, KWM
+                40B1060
               </div>
             </div>
             <div class="section__rule">
-              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img"
+                src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 Все приборы в комплекте должны быть из разных
                 товарных категорий актуального ассортимента KÖRTING
               </div>
             </div>
             <div class="section__rule">
-              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img"
+                src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 Организатор оставляет за собой право на преждевременную
                 остановку акции и изменение ее сроков
               </div>
             </div>
             <div class="section__rule">
-              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img"
+                src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 Скидки не суммируются со скидками из других акций
               </div>
             </div>
             <div class="section__rule">
-              <img class="section__rule-img" src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
+              <img class="section__rule-img"
+                src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick-circle.png" alt="tick-circle.png">
               <div class="section__rule-text">
                 Все приборы в комплекте должны соответствовать
                 актуальному ассортименту KÖRTING
@@ -129,30 +220,31 @@
     </div>
     <div id="section-five" class="section__wrapper">
       <section class="section section-five">
-        <div class="section__left">
-          <div class="section__title">Список партнеров, участвующих в акции</div>
-          <div class="section__main-text">Выберете свой город для просмотра парнеров
-          </div>
-        </div>
-        <div class="section__right">
-          <div class="federal__dropdown">
-            <div class="dropdown__text">
-              Выберете свой город<br class="dropdown__text--sub"> для просмотра партнеров
+        <div class="section__additional__wrapper">
+          <div class="section__left">
+            <div class="section__title">Партнеры - участники акции</div>
+            <div class="section__main-text">
+              Для просмотра партнеров в вашем регионе выберите город
             </div>
-            <div class="dropdown__select">
-              <div id="myDropdown" class="dropdown-wrapper">
-                <div class="dropdown__input">
-                  <input type="text" placeholder="Поиск.." id="myInput" value="Москва">
-                  <span class="dropdown__input-close"><img src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/close.png" alt="close.png"></span>
+          </div>
+          <div class="section__right">
+            <div class="federal__dropdown">
+              <div class="dropdown__select">
+                <div id="myDropdown" class="dropdown-wrapper">
+                  <div class="dropdown__input">
+                    <input type="text" placeholder="Поиск.." id="myInput" value="Москва">
+                    <span class="dropdown__input-close"><img
+                        src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/close.png" alt="close.png"></span>
+                  </div>
+                  <ul class="dropdown-content">
+                  </ul>
                 </div>
-                <ul class="dropdown-content">
-                </ul>
               </div>
             </div>
           </div>
-        </div>
-        <div class="section__bottom">
-          <div class="dropdown__result">
+          <div class="section__bottom">
+            <div class="dropdown__result">
+            </div>
           </div>
         </div>
       </section>
@@ -160,52 +252,46 @@
     <div id="section-six" class="section__wrapper">
       <section class="section section-six">
         <div class="section__left">
-          <div class="section__title">
-            До окончания<br>
-            акции осталось</div>
-          <div class="section__main-text">
-            Успейте приобрести 3 прибора
-            бытовой техники KÖRTING и
-            получить посудомоечную
-            машину в подарок
+          <div class="section__term">
+            <a href="#section-four" class="section__button-link--link">Условия акции</a>
           </div>
-        </div>
-        <div class="section__right">
-          <div class="section__timer-wrapper" data-progress="0">
-            <div class="quad1"></div>
-            <div class="quad2"></div>
-            <div class="quad3"></div>
-            <div class="quad4"></div>
-            <div class="section__timer">
-              <div class="section__timer-days">
-                <div class="section__timer-day">
-                  20
-                </div>
-                <div class="section__timer-day-text">
-                  дней
-                </div>
+          <div class="section__right">
+            <div class="section__timer-wrapper" data-progress="0">
+              <div class="section__timer-comma">
+                <img class="image_timer-comma"
+              src="<%= JSON.parse(htmlWebpackPlugin.options.env) %>assets/tick_img.png" alt="timer-comma">
               </div>
-              <div class="section__timer-comma">:</div>
-              <div class="section__timer-hours">
-                <div class="section__timer-hour">
-                  15
+              <span>Осталось:   </span>
+              <div class="section__timer">
+                <div class="section__timer-days">
+                  <div class="section__timer-day">
+                    20
+                  </div>
+                  <div class="section__timer-day-text">
+                    д
+                  </div>
                 </div>
-                <div class="section__timer-hour-text">
-                  часов
+                <div class="section__timer-hours">
+                  <div class="section__timer-hour">
+                    15
+                  </div>
+                  <div class="section__timer-hour-text">
+                    ч
+                  </div>
                 </div>
-              </div>
-              <div class="section__timer-comma">:</div>
-              <div class="section__timer-minutes">
-                <div class="section__timer-minute">
-                  19
-                </div>
-                <div class="section__timer-minute-text">
-                  минут
+                <div class="section__timer-minutes">
+                  <div class="section__timer-minute">
+                    19
+                  </div>
+                  <div class="section__timer-minute-text">
+                    мин
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
       </section>
     </div>
   </div>

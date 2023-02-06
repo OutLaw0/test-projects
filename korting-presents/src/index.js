@@ -15,10 +15,10 @@ const myInput = document.getElementById("myInput");
 const list = document.getElementsByClassName("dropdown-content")[0]
 const resultList = document.getElementsByClassName("dropdown__result")[0]
 const closeButton = document.getElementsByClassName("dropdown__input-close")[0]
-myInput.addEventListener('focus', myFunctionFocus)
-myInput.addEventListener('input', filterFunction, false)
-document.addEventListener('click', myFunction)
-list.addEventListener('click', clickList)
+myInput.addEventListener('focus', openOnFocusCityList)
+myInput.addEventListener('input', onInputCityList, false)
+document.addEventListener('click', toggleCityList)
+list.addEventListener('click', clickCityList)
 closeButton.addEventListener('click', () => createResultList('Москва'))
 
 function createSelectList() {
@@ -33,11 +33,10 @@ function createSelectList() {
   })
   list.appendChild(fragment)
 }
-createSelectList();
+
 
 function createResultList(city) {
   const fragment = document.createDocumentFragment();
-
   partners_arr.forEach(item => {
     if (item.allCity || item.city.indexOf(city) != -1) {
       const imgLink = item.imgSrc ? `assets${item.imgSrc}` : ''
@@ -54,24 +53,25 @@ function createResultList(city) {
   resultList.innerHTML = ''
   resultList.appendChild(fragment)
 }
-createResultList('Москва')
 
-function myFunction(e) {
+function toggleCityList(e) {
   const listOpen = list.classList.contains('show');
   if (e.target !== myInput && listOpen) {
     list.classList.toggle("show");
   }
 }
-function clickList(e) {
+
+function clickCityList(e) {
   const clickResult = e.target.textContent;
   myInput.value = clickResult;
   createResultList(clickResult);
 }
-function myFunctionFocus() {
-  list.classList.toggle("show");
+
+function openOnFocusCityList() {
+  if (!list.classList.contains('show')) {list.classList.add("show");}
 }
 
-function filterFunction() {
+function onInputCityList() {
   let input, filter, li, i;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
@@ -91,7 +91,7 @@ function filterFunction() {
 
 function startTimer() {
   // конечная дата, например 1 июля 2021
-  const deadline = new Date(2022, 11, 1);
+  const deadline = new Date(2023, 4, 1);
   // id таймера
   let timerId = null;
   // получаем элементы, содержащие компоненты даты
@@ -108,7 +108,7 @@ function startTimer() {
   // вычисляем разницу дат и устанавливаем оставшееся времени в качестве содержимого элементов
   function countdownTimer() {
     const diff = deadline - new Date();
-    startCircleTimer(diff);
+    // startCircleTimer(diff);
 
     if (diff <= 0) {
       clearInterval(timerId);
@@ -116,12 +116,12 @@ function startTimer() {
     const days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) : 0;
     const hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0;
     const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
-    $days.textContent = days < 10 ? '0' + days : days;
-    $hours.textContent = hours < 10 ? '0' + hours : hours;
-    $minutes.textContent = minutes < 10 ? '0' + minutes : minutes;
-    $daysText.textContent = declensionNum(days, ['день', 'дня', 'дней']);
-    $hoursText.textContent = declensionNum(hours, ['час', 'часа', 'часов']);
-    $minutesText.textContent = declensionNum(minutes, ['минута', 'минуты', 'минут']);
+    $days.textContent = days;
+    $hours.textContent = hours;
+    $minutes.textContent = minutes;
+    $daysText.textContent = declensionNum(days, ['д', 'д', 'д']);
+    $hoursText.textContent = declensionNum(hours, ['ч', 'ч', 'ч']);
+    $minutesText.textContent = declensionNum(minutes, ['мин', 'мин', 'мин']);
   }
 
   // вызываем функцию countdownTimer
@@ -132,91 +132,10 @@ function startTimer() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+  createSelectList();
+  createResultList('Москва')
   startTimer();
+  document.getElementsByClassName("middle")[0].style.maxWidth = 'none';
   document.getElementsByClassName("middle")[0].style.padding = '0';
   document.getElementsByClassName("page__title")[0].style.display = 'none';
-});
-
-const progressbar = document.getElementsByClassName("section__timer-wrapper")[0];
-//progressbar.addEventListener('click', startCircleTimer);
-
-function startCircleTimer(diff) {
-  const quad1 = document.getElementsByClassName('quad1')[0];
-  const quad2 = document.getElementsByClassName('quad2')[0];
-  const quad3 = document.getElementsByClassName('quad3')[0];
-  const quad4 = document.getElementsByClassName('quad4')[0];
-
-  incrementProg(diff)
-
-  function incrementProg(diff) {
-    const maxDays = 2592000000;
-    let progress = Math.floor((maxDays - diff) / maxDays * 100)
-    if (progress > 100) {
-      progress = 100
-    }
-    if (progress > 0) {
-      setPie(progress);
-    }
-  }
-
-  function setPie(progress) {
-    if (progress <= 25) {
-      quad1.setAttribute('style', 'transform: skew(' + progress * (-90 / 25) + 'deg)');
-    }
-    /* От 25 до 50: скрыть 1-й квадрант + изменить угол перекоса 2-го квадранта */
-    else if (progress > 25 && progress <= 50) {
-      quad1.setAttribute('style', 'transform: skew(-90deg)'); // полностью скрывает 1-й квадрант
-      quad2.setAttribute('style', 'transform: skewY(' + (progress - 25) * (90 / 25) + 'deg)');
-      progressbar.setAttribute('style', 'box-shadow: inset 0px 0px 0px 25px #e8f9fe');
-    }
-    /* От 50 до 75: скрыть первые 2 квадранта + изменить угол наклона 3-го квадранта. */
-    else if (progress > 50 && progress <= 75) {
-      quad1.setAttribute('style', 'transform: skew(-90deg)'); // полностью скрывает 1-й
-      quad2.setAttribute('style', 'transform: skewY(90deg)'); // полностью скрывает второй
-      quad3.setAttribute('style', 'transform: skew(' + (progress - 50) * (-90 / 25) + 'deg)');
-      progressbar.setAttribute('style', 'box-shadow: inset 0px 0px 0px 25px #e8f9fe');
-    }
-    /* Аналогично приведенному выше для значения от 75 до 100 */
-    else if (progress > 75 && progress < 100) {
-      quad1.setAttribute('style', 'transform: skew(-90deg)'); // hides 1st completely
-      quad2.setAttribute('style', 'transform: skewY(90deg)'); // hides 2nd completely
-      quad3.setAttribute('style', 'transform: skew(-90deg)'); // hides 3rd completely
-      quad4.setAttribute('style', 'transform: skewY(' + (progress - 75) * (90 / 25) + 'deg)');
-      progressbar.setAttribute('style', 'box-shadow: inset 0px 0px 0px 25px #e8f9fe');
-    }
-    else {
-      quad1.setAttribute('style', 'transform: skew(-90deg)'); // hides 1st completely
-      quad2.setAttribute('style', 'transform: skewY(90deg)'); // hides 2nd completely
-      quad3.setAttribute('style', 'transform: skew(-90deg)'); // hides 3rd completely
-      quad4.setAttribute('style', 'transform: skewY(90deg)');
-      progressbar.setAttribute('style', 'box-shadow: inset 0px 0px 0px 25px #ff8100');
-    }
-  }
-}
-
-const sections = document.getElementsByClassName('section__wrapper');
-
-window.addEventListener("scroll", () => {
-  const y = window.innerHeight;
-  const sectionMax = { max: 0, sectionId: '' };
-  for (const section of sections) {
-    const rect = section.getBoundingClientRect();
-    // console.log(y, rect, section.id);
-    if (rect.top < y && rect.bottom > 0) {
-      const bottom = rect.bottom > y ? y : rect.bottom;
-      const top = rect.top > 0 ? rect.top : 0;
-      const diff = (bottom - top)
-      if (diff > sectionMax.max) {
-        sectionMax.max = diff;
-        sectionMax.sectionId = section.id;
-      }
-    }
-  }
-  const sectionId = sectionMax.sectionId;
-  // дизактивируем все активные ссылки
-  document.querySelector('.navigation-block-dot.active').classList.remove("active");
-  // активируем текущую
-  const navigationContainer = document.getElementById(sectionId);
-  navigationContainer.querySelector(`[href*=${sectionId}]`).firstElementChild.classList.add("active")
-
 });

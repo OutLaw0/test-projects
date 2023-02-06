@@ -7,7 +7,7 @@ const path = require('path');
 
 /* global API_URL */
 const API_URL = {
-  production: JSON.stringify('/promo/federal/'),
+  production: JSON.stringify('/promo/presents/'),
   development: JSON.stringify('')
 }
 
@@ -20,7 +20,9 @@ console.log(mode + ' mode')
 module.exports = {
   mode: mode,
   entry: {
-    scripts: './src/index.js',
+    // scripts: './src/index.js',
+    index: './src/index.js',
+        'js/slider': './src/slider.js',
 
   },
   output: {
@@ -51,7 +53,8 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './src/index.ejs',
-      env: API_URL[mode]
+      env: API_URL[mode],
+      chunks: ['index','js/slider']
     }),
     new CopyPlugin({
       patterns: [
