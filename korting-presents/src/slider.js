@@ -81,12 +81,12 @@ function createSlider(event) {
   const sliderItems = document.querySelector(".slider__items");
   animationStop = false;
   let containerWidth = sliderWrapperBase.offsetWidth;
-  let containerHeight = sliderWrapperBase.getBoundingClientRect().height; //get height number with after the decimal point
+  //let containerHeight = sliderWrapperBase.getBoundingClientRect().height; //get height number with after the decimal point
   let sliderWidth = sliderWrapper.offsetWidth;
 
   sliderWrapper.style.width = sliderWidth + 265 + "px";
   sliderWrapperBase.style.width = containerWidth + "px";
-  sliderItems.style.height = containerHeight + "px";
+  //sliderItems.style.height = containerHeight + "px";
 
   if (event.currentTarget == next) { //NEXT
     new_inner = createPet(getRandomPet('first'));
@@ -99,7 +99,7 @@ function createSlider(event) {
       //console.log(sliderWrapper.firstElementChild);
       sliderItems.firstElementChild.remove();
       sliderWrapper.style.width = "auto"; sliderWrapper.style.transform = `translate3d(0px, 0px, 0px)`; animationStop = true;
-      sliderWrapperBase.style.width = "auto"; sliderItems.style.height = "auto";
+      sliderWrapperBase.style.width = "auto"; // sliderItems.style.height = "auto";
 
     }, 500);
   }
@@ -115,7 +115,7 @@ function createSlider(event) {
       sliderWrapper.style.transition = "none";
       sliderItems.lastElementChild.remove(); sliderWrapper.style.width = "auto";
       sliderWrapper.style.transform = 'none'; animationStop = true;
-      sliderWrapperBase.style.width = "auto"; sliderItems.style.height = "auto";
+      sliderWrapperBase.style.width = "auto"; // sliderItems.style.height = "auto";
     }, 500);
   }
 
