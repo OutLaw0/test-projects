@@ -131,6 +131,10 @@ function startTimer() {
   timerId = setInterval(countdownTimer, 8000);
 }
 
+/*const timerElement = document.querySelector('#section-six')
+timerElement.style.left = `calc(50vw - ${timerElement.offsetWidth/2}px)`;
+console.log(timerElement.getBoundingClientRect());*/
+
 document.addEventListener('DOMContentLoaded', function () {
   createSelectList();
   createResultList('Москва')

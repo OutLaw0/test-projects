@@ -1,5 +1,23 @@
 @font-face {
+  font-family: "HelveticaNeueCyrTitle";
+  font-style: normal;
+  src: local('HelveticaNeueCyr'),
+    url("../assets/fonts/HelveticaNeueCyr-Medium.eot") format("embedded-opentype"),
+    /* IE6-IE8 */
+    url("../assets/fonts/HelveticaNeueCyr-Medium.woff") format("woff"),
+    /* Modern Browsers */
+    url("../assets/fonts/HelveticaNeueCyr-Medium.ttf") format("truetype"),
+    /* Safari, Android, iOS */
+}
+
+@font-face {
   font-family: "HelveticaNeueCyr";
-  src: local('HelveticaNeueCyr');
-  src: url('../assets/fonts/helveticaneuecyr_roman.otf') format('opentype');
+  font-style: normal;
+  src: local('HelveticaNeueCyr'),
+    url("../assets/fonts/HelveticaNeueCyr-Roman.eot") format("embedded-opentype"),
+    /* IE6-IE8 */
+    url("../assets/fonts/HelveticaNeueCyr-Roman.woff") format("woff"),
+    /* Modern Browsers */
+    url("../assets/fonts/HelveticaNeueCyr-Roman.ttf") format("truetype"),
+    /* Safari, Android, iOS */
 }

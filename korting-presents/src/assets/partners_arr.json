@@ -258,5 +258,15 @@
       "Южно-Сахалинск",
       "Ярославль"
     ]
+  },
+  {
+    "id": 5,
+    "name": "Встройка-Соло",
+    "allCity": false,
+    "imgSrc": "/partners/vstroika_solo.png",
+    "brandLink": "https://vstroyka-solo.ru/",
+    "city": [
+      "Москва"
+    ]
   }
 ]
