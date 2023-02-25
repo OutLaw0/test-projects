@@ -753,6 +753,7 @@ div.slider__arrow img {
     font-size: 16px;
     line-height: 20.8px;
   }
+
   @media (max-width: 550px) {
     padding: 4px 9px 2px 9px;
   }
@@ -773,6 +774,7 @@ div.slider__arrow img {
     font-size: 18px;
     line-height: 23.4px;
   }
+
   @media (max-width: 550px) {
     padding: 5px 17px 3px 17px;
   }
@@ -1678,6 +1680,8 @@ section.section-four {
 .section__timer-comma {
   padding-right: 2px;
   animation: timer-comma 1s ease infinite;
+  width: 7px;
+  padding-right: 0px;
 
   @media (max-width: 550px) {
     width: 7px;
