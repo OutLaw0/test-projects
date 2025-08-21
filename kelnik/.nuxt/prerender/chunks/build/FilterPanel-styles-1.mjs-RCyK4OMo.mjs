@@ -1,4 +1,0 @@
-const FilterPanel_vue_vue_type_style_index_0_scoped_20699f05_lang = ".filter[data-v-20699f05]{background:transparent}.rooms[data-v-20699f05]{display:flex;gap:12px;padding:8px 6px}.pill[data-v-20699f05]{background:#fff;border:1px solid #d8efe3;border-radius:22px;color:#0b254b;cursor:pointer;font-weight:600;height:44px;min-width:44px}.pill.active[data-v-20699f05]{background:#3bb273;border-color:#3bb273;color:#fff}.group[data-v-20699f05]{padding:12px 6px}.label[data-v-20699f05]{color:#0b254b;font-size:14px;font-weight:600;margin-bottom:50px}.foot[data-v-20699f05]{padding:8px 6px}.reset[data-v-20699f05]{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:none;border:none;color:#6b7280;cursor:pointer;font-size:14px}";
-
-export { FilterPanel_vue_vue_type_style_index_0_scoped_20699f05_lang as F };
-//# sourceMappingURL=FilterPanel-styles-1.mjs-RCyK4OMo.mjs.map
