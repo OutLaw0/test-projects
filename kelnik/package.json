@@ -1,0 +1,27 @@
+{
+  "name": "kelnik-apartments",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.5.3",
+    "nuxt": "^3.12.0",
+    "pinia": "^2.2.2",
+    "nouislider": "^15.8.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "eslint": "^9.7.0",
+    "eslint-plugin-vue": "^9.26.0",
+    "@typescript-eslint/eslint-plugin": "^8.2.0",
+    "@typescript-eslint/parser": "^8.2.0",
+    "@types/node": "^22.5.0"
+  }
+} 

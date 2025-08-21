@@ -1,0 +1,210 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #0a0a0a;
+  --color-muted: #6b7280;
+  --color-primary: #2f80ed;
+  --color-primary-hover: #1c6adf;
+  --color-border: #e5e7eb;
+  --color-surface: #f8fafc;
+
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'PT Root UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.header {
+  padding: 20px 0;
+}
+
+.header h1 { color: #0b254b; font-weight: 700; }
+
+.section {
+  padding-top: 16px;
+  padding-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--color-primary);
+  color: #fff;
+  border: 1px solid var(--color-primary);
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  user-select: none;
+}
+.button:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+.button:active {
+  opacity: 0.9;
+}
+.button:disabled,
+.button[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+.btn-secondary:hover {
+  background: var(--color-surface);
+}
+
+.input,
+.select,
+.checkbox {
+  font: inherit;
+}
+.input,
+.select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.input:hover,
+.select:hover {
+  border-color: #d1d5db;
+}
+.input:focus,
+.select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.15);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (min-width: 960px) {
+  .form-row {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: #fff;
+  overflow: hidden;
+}
+.card-media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #eef2f7;
+  object-fit: cover;
+  display: block;
+}
+.card-body {
+  padding: 12px;
+}
+.card-title {
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  font-size: 16px;
+}
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+.card-price {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.load-more {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-top {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 100;
+}
+@media (min-width: 960px) {
+  .scroll-top {
+    right: 24px;
+    bottom: 24px;
+  }
+}
+
+/* Table tweaks */
+.table.card { border-radius: 12px; border-color: #eef2f7; }
+.table .tr:hover { background: #fbfdff; }
+
+/* Sidebar filter background similar to screenshot */
+.filter-card { background:#e7f5ed; border: 1px solid #d8efe3; }
+
+/* Green accent */
+:root { --accent: #3bb273; }
+.button.btn-secondary { border-color:#cbd5e1; }
+.noui-target, .noUi-target { --accent: #3bb273; }
+.noUi-connect { background: var(--accent) !important; }
+.noUi-handle { box-shadow: 0 0 0 3px rgba(59,178,115,.15); border: 2px solid var(--accent); } 
